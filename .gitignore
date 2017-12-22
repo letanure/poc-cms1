@@ -56,3 +56,23 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# OS files
+.DS_Store
+
+# Builded files
+/dist/
+
+# Test files
+/test/unit/coverage/
+/test/e2e/reports/
+selenium-debug.log
+
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
