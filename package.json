@@ -8,11 +8,35 @@
   "license": "MIT",
   "devDependencies": {
     "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.1.0"
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "scripts": {
+    "commitmsg": "validate-commit-msg"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "build",
+        "chore",
+        "ci",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test"
+      ],
+      "autoFix": true,
+      "warnOnFail": false,
+      "maxSubjectLength": 100,
+      "subjectPatternErrorMsg": "Subject must be in format 'type: Commit message'"
     }
   }
 }
