@@ -1,3 +1,5 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/letanure/poc-cms.svg)](https://circleci.com/gh/letanure/poc-cms)
+
 # POC CMS  Vue JS
 
 Proof of concept of CMS with Vue JS
