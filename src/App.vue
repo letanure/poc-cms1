@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'AppCms'
+  name: 'AppCms',
 }
 </script>
 
