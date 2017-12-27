@@ -12,3 +12,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Use Stylus as preprocessor for CSS
 - Use Pug as preprocessor for HTML
 - Add `precommit` githook to run tests befone any commit
+- Add Vuex
