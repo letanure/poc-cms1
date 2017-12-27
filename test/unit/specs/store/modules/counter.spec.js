@@ -1,7 +1,7 @@
 import store from '@/store/modules/counter'
 import * as types from '@/store/mutation-types'
 
-describe('Store Counter Actions', () => {
+describe('Store Counter Mutations', () => {
 
   it('should increment', () => {
     const state = { count: 0 }

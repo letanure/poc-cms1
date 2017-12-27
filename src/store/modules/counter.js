@@ -8,17 +8,25 @@ const state = {
 // getters
 const getters = {
   currentCount: state => state.count,
+  evenOrOdd: state => {
+    return state => state.count % 2 === 0 ? 'even' : 'odd'
+  },
 }
 
 // actions
 const actions = {
-  increment ({ commit }) {
-    commit(types.INCREMENT_COUNTER)
+  addToCounter ({ commit }, quantity) {
+    commit(types.INCREMENT_COUNTER_ADD, quantity)
   },
 
   decrement ({ commit }) {
     commit(types.DECREMENT_COUNTER)
   },
+
+  increment ({ commit }) {
+    commit(types.INCREMENT_COUNTER)
+  },
+
 }
 
 // mutations

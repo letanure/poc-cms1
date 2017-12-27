@@ -1,11 +1,66 @@
-import Vue from 'vue'
+import { shallow, createLocalVue } from 'vue-test-utils'
+import Vuex from 'vuex'
 import HelloWorld from '@/components/HelloWorld'
+import counter from '@/store/modules/counter'
+
+const localVue = createLocalVue()
+
+localVue.use(Vuex)
 
 describe('HelloWorld.vue', () => {
-  it('should render correct contents', () => {
-    const Constructor = Vue.extend(HelloWorld)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent.trim())
-    .toEqual('Welcome to Your Vue.js App')
+  let actions
+  let state
+  let store
+
+  beforeEach(() => {
+    state = {
+      count: 0
+    }
+
+    actions = {
+      addToCounter: jest.fn(),
+      decrement: jest.fn(),
+      increment: jest.fn(),
+    }
+
+    store = new Vuex.Store({
+      state,
+      actions,
+      getters: counter.getters
+    })
   })
+
+  it('show the correct message', () => {
+    const wrapper = shallow(HelloWorld, { store, localVue })
+    const message = wrapper.vm.$el.querySelector('.hello h1').textContent.trim()
+    expect(message).toEqual('Welcome to Your Vue.js App')
+  })
+
+  it('Renders state.counter ', () => {
+    const wrapper = shallow(HelloWorld, { store, localVue })
+    const countValue = wrapper.find('.count__value').text()
+    expect(countValue).toBe(state.count.toString())
+  })
+
+  it('Increment the count when button is clicked', () => {
+    const wrapper = shallow(HelloWorld, { store, localVue })
+    const button = wrapper.find('button.count__action__increment')
+    button.trigger('click')
+    expect(actions.increment).toHaveBeenCalled()
+  })
+
+  it('Decrement the count when button is clicked', () => {
+    const wrapper = shallow(HelloWorld, { store, localVue })
+    const button = wrapper.find('button.count__action__decrement')
+    button.trigger('click')
+    expect(actions.decrement).toHaveBeenCalled()
+  })
+
+  it('Add the count when button is clicked', () => {
+    const wrapper = shallow(HelloWorld, { store, localVue })
+    const button = wrapper.find('button.count__action__add')
+    button.trigger('click')
+    expect(actions.addToCounter).toHaveBeenCalled()
+  })
+
 })

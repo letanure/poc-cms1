@@ -45,15 +45,38 @@
         a(href="https://github.com/vuejs/awesome-vue",
           target="_blank", )
           | awesome-vue
+    h2.
+      Counter Vuex
+    div
+      p
+        | Counter:
+        span.count__value {{ currentCount }}
+      p
+        button.count__action__increment(@click='increment') +
+        button.count__action__decrement(@click='decrement') -
+        button.count__action__add(@click='addToCounter(10)') +10
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
     }
+  },
+  computed: mapGetters([
+    'currentCount',
+    'evenOrOdd',
+  ]),
+  methods: {
+    ...mapActions([
+      'addToCounter',
+      'decrement',
+      'increment',
+    ]),
   },
 }
 </script>
