@@ -1,28 +1,73 @@
 <template lang="pug">
-  div.hello
-    h1.
-      {{ msg }}
+  div.HelloWorld
+    h1.title
+      | {{ msg }}
 
-    h2.
-      Counter Vuex
-    div
-      p
-        | Counter:
-        span.count__value {{ currentCount }}
-      p
-        button.count__action__increment(@click='increment') +
-        button.count__action__decrement(@click='decrement') -
-        button.count__action__add(@click='addToCounter(10)') +10
+    .columns
+      .column
+        h2.subtitle
+          | Simple component MessageUi
+
+    .columns
+      .column
+        p Content with props
+        message-ui(header='Header', body='Body', @close='showClosedText()')
+        p.has-text-danger(v-if='closedText')
+          | You closed the message
+      .column
+        p Content with props, only Body
+        message-ui(body='Body only', )
+      .column
+        p Content with props, body and color
+        message-ui(body='Body success', color='success', )
+    .columns
+      .column
+        p Content with props, size small
+        message-ui(header='Header without close', body='Body small', size='small', :hasClose='false', )
+      .column
+        p Message starts hidden
+        message-ui(header='Header', body='Body danger', color='danger', :visible='messageIsVisible', @close='messageIsVisible = false')
+        button.button(@click='showHiddenMessage()', v-if='!messageIsVisible') Show message hidden
+      .column
+        p Content with slots
+        message-ui()
+          template(slot='header')
+            | Header
+          template(slot='body')
+            | Body with
+            strong
+              |  HTML
+            |  inside
+
+    .columns
+      .column
+        h2.subtitle
+        | Counter Vuex
+    .columns
+      .column
+          p
+            | Counter:
+            span.count__value {{ currentCount }}
+          p
+            button.button.count__action__increment(@click='increment') +
+            button.button.count__action__decrement(@click='decrement') -
+            button.button.count__action__add(@click='addToCounter(10)') +10
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import MessageUi from '@/components/ui/MessageUi'
 
 export default {
   name: 'HelloWorld',
+  components: {
+    MessageUi,
+  },
   data () {
     return {
       msg: 'Start App',
+      closedText: false,
+      messageIsVisible: false,
     }
   },
   computed: mapGetters([
@@ -35,24 +80,18 @@ export default {
       'decrement',
       'increment',
     ]),
+
+    showClosedText () {
+      this.closedText = true
+    },
+
+    showHiddenMessage () {
+      this.messageIsVisible = true
+    },
   },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus">
-h1, h2
-  font-weight normal
-
-ul
-  list-style-type none
-  padding 0
-
-li
-  display inline-block
-  margin 0 10px
-
-a
-  color: #42b983;
-
+// .HelloWorld
 </style>
