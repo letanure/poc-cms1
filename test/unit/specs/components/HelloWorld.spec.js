@@ -33,7 +33,7 @@ describe('HelloWorld.vue', () => {
   it('show the correct message', () => {
     const wrapper = shallow(HelloWorld, { store, localVue })
     const message = wrapper.vm.$el.querySelector('.hello h1').textContent.trim()
-    expect(message).toEqual('Welcome to Your Vue.js App')
+    expect(message).toEqual('Start App')
   })
 
   it('Renders state.counter ', () => {
