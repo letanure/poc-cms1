@@ -43,6 +43,37 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 Check the [CONTRIBUTING.md](CONTRIBUTING.md) file to see the development rules.
 
+## Development
+
+### Application Structure
+
+```
+├── main.js
+├── api                   # abstractions for making API requests
+│   └── ...
+├── assets                # files required inside JS
+│   └── ...
+├── components
+│   ├── App.vue
+│   └── ...
+├── router                # router configurations
+│   └── ...
+├── store                 # store base and modules
+│   ├── index.js          # where we assemble modules and export the store
+│   ├── actions.js        # root actions
+│   ├── mutations.js      # root mutations
+│   └── modules
+│       ├── module1.js    # module1 module
+│       └── module2.js    # module2 module
+└── templates
+    ├── layout.pug        # general wrapper fot all HTMLs
+    ├── index.pug         # entry point, using the layout.pug
+    └── includes
+        ├── head          # HTML head code
+        └── ...           # other files to be included in pages and layout
+```
+
+
 ## History
 
 Check the [CHANGELOG.md](CHANGELOG.md) file to see the development rules.
