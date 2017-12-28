@@ -34,5 +34,8 @@ module.exports = {
       'exports': 'never',
       'functions': 'ignore',
     }],
+  },
+  globals: {
+    VERSION: true
   }
 }
