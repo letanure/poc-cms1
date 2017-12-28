@@ -11,7 +11,7 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
+      .assert.elementPresent('.HelloWorld')
       .assert.containsText('h1', 'Start App')
       .end()
   }

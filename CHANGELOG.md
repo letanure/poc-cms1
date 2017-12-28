@@ -12,11 +12,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 ### Security
 
+## [0.3.0] - 28/12/2017
+### Added
+
+- Add Bulma CSS
+- Add font awesome
+- Add component Message from Bulma, with examples of usage on HelloWorld
+
+### Changed
+- Updated layout with bulma grids
+- Updated HelloWorld class and test text
+
+---
 ## [0.2.0] - 28/12/2017
 ### Added
 - Add HTML entry point using `pug` preprocessor and watch/reload
 
-
+---
 ## [0.1.0] - 28/12/2017
 ### Added
 
