@@ -6,6 +6,18 @@
     .columns
       .column
         h2.subtitle
+          | Complex component TabsUi
+
+    .columns
+      .column
+        tabs-ui(:items='tabItems', :active='activeTab' appearance='boxed', @changeTab='updateTab')
+    .columns
+      .column
+        button.button(@click='changeTab') change to 3 tab
+
+    .columns
+      .column
+        h2.subtitle
           | Simple component MessageUi
 
     .columns
@@ -57,17 +69,26 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import MessageUi from '@/components/ui/MessageUi'
+import TabsUi from '@/components/ui/TabsUi'
 
 export default {
   name: 'HelloWorld',
   components: {
     MessageUi,
+    TabsUi,
   },
   data () {
     return {
       msg: 'Start App',
       closedText: false,
       messageIsVisible: false,
+      tabItems: [
+        { text: 'Pictures' },
+        { text: 'Music' },
+        { text: 'Videos' },
+        { text: 'Documents' },
+      ],
+      activeTab: 1,
     }
   },
   computed: mapGetters([
@@ -81,12 +102,20 @@ export default {
       'increment',
     ]),
 
+    changeTab () {
+      this.activeTab = 3
+    },
+
     showClosedText () {
       this.closedText = true
     },
 
     showHiddenMessage () {
       this.messageIsVisible = true
+    },
+
+    updateTab (index) {
+      this.activeTab = index
     },
   },
 }

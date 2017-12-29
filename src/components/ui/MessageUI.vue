@@ -1,5 +1,5 @@
 <template lang="pug">
-.MessageUI.message(:class='classes', v-if='isVisible')
+.MessageUi.message(:class='classes', v-if='isVisible')
 
   .message-header(v-if='header || hasSlotHeader', )
     slot(name='header', v-if='hasSlotHeader', )
@@ -12,14 +12,12 @@
     slot(name='body', v-if='hasSlotBody', )
     p(v-if='body', )
       | {{ body }}
-</div>
-</article>
 </template>
 
 <script>
 
 export default {
-  name: 'MessageUI',
+  name: 'MessageUi',
   props: {
     color: {
       default: 'default',
@@ -121,5 +119,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .MessageUI
+// .MessageUi
 </style>

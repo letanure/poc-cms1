@@ -1,14 +1,14 @@
 import { mount, shallow, createLocalVue } from 'vue-test-utils'
 import Vuex from 'vuex'
-import MessageUI from '@/components/ui/MessageUI'
+import Component from '@/components/ui/MessageUi'
 
-describe('MessageUI.vue', () => {
+describe(`${Component.name}.vue`, () => {
 
   describe('Props', () => {
 
     it('renders header when passed', () => {
       const prop = 'Header text'
-      const wrapper = mount(MessageUI, {
+      const wrapper = mount(Component, {
         propsData: {
           header: prop,
         }
@@ -19,7 +19,7 @@ describe('MessageUI.vue', () => {
 
     it('renders body when passed', () => {
       const prop = 'Body text'
-      const wrapper = mount(MessageUI, {
+      const wrapper = mount(Component, {
         propsData: {
           body: prop,
         }
@@ -30,7 +30,7 @@ describe('MessageUI.vue', () => {
 
     it('add color class when passed', () => {
       const prop = 'dark'
-      const wrapper = mount(MessageUI, {
+      const wrapper = mount(Component, {
         propsData: {
           color: prop,
         }
@@ -41,7 +41,7 @@ describe('MessageUI.vue', () => {
 
     it('add size class when passed', () => {
       const prop = 'large'
-      const wrapper = mount(MessageUI, {
+      const wrapper = mount(Component, {
         propsData: {
           size: prop,
         }
@@ -53,7 +53,7 @@ describe('MessageUI.vue', () => {
     it('add size and color class when passed', () => {
       const propColor = 'success'
       const propSize = 'large'
-      const wrapper = mount(MessageUI, {
+      const wrapper = mount(Component, {
         propsData: {
           color: propColor,
           size: propSize,
@@ -66,5 +66,3 @@ describe('MessageUI.vue', () => {
 
   })
 })
-
-// visible

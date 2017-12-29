@@ -6,10 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 ### Added
+- Add component Tabs from Bulma, with examples of usage on HelloWorld
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+- Fix component name MessageUI to MessageUi and clean HTML template
 ### Security
 
 ## [0.3.0] - 28/12/2017
