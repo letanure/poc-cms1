@@ -12,14 +12,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 ### Security
 
-## [0.4.0] - 29/12/2017
+## [0.4.0](../../compare/0.3.0...0.4.0) - 29/12/2017
 ### Added
 - Add component Tabs from Bulma, with examples of usage on HelloWorld
 ### Fixed
 - Fix component name MessageUI to MessageUi and clean HTML template
 
 --
-## [0.3.0] - 28/12/2017
+## [0.3.0](../../compare/0.2.0...0.3.0) - 28/12/2017
 ### Added
 
 - Add Bulma CSS
@@ -31,12 +31,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Updated HelloWorld class and test text
 
 ---
-## [0.2.0] - 28/12/2017
+## [0.2.0](../../compare/0.1.0...0.2.0) - 28/12/2017
 ### Added
 - Add HTML entry point using `pug` preprocessor and watch/reload
 
 ---
-## [0.1.0] - 28/12/2017
+## [0.1.0](../../compare/0.0.0...0.1.0) - 28/12/2017
 ### Added
 
 - Start project with _commitizen_ and _husky_ to check commits messages
