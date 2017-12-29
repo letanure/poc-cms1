@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 ### Added
+- Add component Tabs from Bulma, with examples of usage on HelloWorld
 ### Changed
 ### Deprecated
 ### Removed
