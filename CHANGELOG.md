@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased](../../compare/master...dev)
 ### Added
 ### Changed
+- Updated eslint config for test spec files and fixed the tests
 ### Deprecated
 ### Removed
 ### Fixed

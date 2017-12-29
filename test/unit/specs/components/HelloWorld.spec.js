@@ -14,7 +14,7 @@ describe('HelloWorld.vue', () => {
 
   beforeEach(() => {
     state = {
-      count: 0
+      count: 0,
     }
 
     actions = {
@@ -26,7 +26,7 @@ describe('HelloWorld.vue', () => {
     store = new Vuex.Store({
       state,
       actions,
-      getters: counter.getters
+      getters: counter.getters,
     })
   })
 
@@ -62,5 +62,4 @@ describe('HelloWorld.vue', () => {
     button.trigger('click')
     expect(actions.addToCounter).toHaveBeenCalled()
   })
-
 })

@@ -1,9 +1,7 @@
-import { mount, shallow, createLocalVue } from 'vue-test-utils'
-import Vuex from 'vuex'
+import { mount } from 'vue-test-utils'
 import Component from '@/components/ui/TabsUi'
 
 describe(`${Component.name}.vue`, () => {
-
   describe('Properties', () => {
     const createCmp = propsData => mount(Component, { propsData })
     let propName
@@ -18,7 +16,7 @@ describe(`${Component.name}.vue`, () => {
             {text: 'Item 1'},
             {text: 'Item 2'},
             {text: 'Item 3'},
-          ]
+          ],
         }
       })
 
@@ -127,7 +125,7 @@ describe(`${Component.name}.vue`, () => {
           propsData: {
             items: items,
             active: activeItem,
-          }
+          },
         })
         const classes = wrapper.findAll('li').at(activeItem).classes()
         expect(classes).toContain('is-active')
@@ -144,7 +142,7 @@ describe(`${Component.name}.vue`, () => {
           propsData: {
             items: items,
             active: activeItem,
-          }
+          },
         })
         const ActiveCount = wrapper.findAll('.is-active').length
         expect(ActiveCount).toBe(1)
@@ -163,7 +161,7 @@ describe(`${Component.name}.vue`, () => {
             align: prop1,
             appearance: prop2,
             size: prop3,
-          }
+          },
         })
         const classes = wrapper.classes()
         expect(classes).toContain(`is-${prop1}`)
@@ -189,7 +187,7 @@ describe(`${Component.name}.vue`, () => {
         propsData: {
           items: items,
           active: activeItem,
-        }
+        },
       })
     })
 
@@ -197,7 +195,7 @@ describe(`${Component.name}.vue`, () => {
       expect(wrapper.vm.activeItem).toBe(activeItem)
       activeItem = 2
       wrapper.setProps({
-        active: activeItem
+        active: activeItem,
       })
       expect(wrapper.vm.activeItem).toBe(activeItem)
     })
@@ -225,7 +223,7 @@ describe(`${Component.name}.vue`, () => {
         propsData: {
           items: items,
           active: activeItem,
-        }
+        },
       })
     })
 
@@ -235,5 +233,4 @@ describe(`${Component.name}.vue`, () => {
       expect(wrapper.vm.activeItem).toBe(activeItem)
     })
   })
-
 })
