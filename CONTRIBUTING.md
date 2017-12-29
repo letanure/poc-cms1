@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 Each new version should follow the format
 
 ```
-## [1.0.0] - 20/12/2017
+## [1.0.0](../../compare/0.3.0...0.4.0) - 20/12/2017
 ```
 
 ### Guiding Principles
