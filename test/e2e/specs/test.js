@@ -14,5 +14,5 @@ module.exports = {
       .assert.elementPresent('.HelloWorld')
       .assert.containsText('h1', 'Start App')
       .end()
-  }
+  },
 }

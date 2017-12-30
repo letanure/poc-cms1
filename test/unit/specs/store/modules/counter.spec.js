@@ -2,7 +2,6 @@ import store from '@/store/modules/counter'
 import * as types from '@/store/mutation-types'
 
 describe('Store Counter', () => {
-
   describe('Actions', () => {
     let context
 
@@ -29,7 +28,6 @@ describe('Store Counter', () => {
       store.actions.addToCounter(context, quantity)
       expect(context.commit).toHaveBeenCalledWith(types.INCREMENT_COUNTER_ADD, { quantity })
     })
-
   })
 
   describe('Getters', () => {
@@ -89,5 +87,4 @@ describe('Store Counter', () => {
       expect(state.count).toEqual(30)
     })
   })
-
 })
