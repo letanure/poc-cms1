@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { clone } from 'lodash'
 import GridComponents from '@/components/GridComponents'
 
@@ -100,15 +101,26 @@ export default {
       ],
     }
   },
+  computed: mapGetters([
+    'url',
+  ]),
   watch: {
     pageUrl () {
       this.currentUrl = this.pageUrl
+    },
+
+    currentUrl () {
+      this.updateUrl(this.currentUrl)
     },
   },
   mounted () {
     this.currentUrl = this.pageUrl
   },
   methods: {
+    ...mapActions([
+      'updateUrl',
+    ]),
+
     updateDynamicComponents () {
       const newComp = clone(this.componentsList[1])
       newComp.key = new Date().getMilliseconds()
