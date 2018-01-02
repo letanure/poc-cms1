@@ -1,6 +1,21 @@
 <template lang="pug">
   div.PageRender
 
+    nav.HeaderMain.navbar.has-shadow(role='navigation', aria-label='main navigation', )
+      .navbar-brand
+        a.navbar-item(href='/', )
+          .logo
+            | POC CMS
+      .navbar-menu
+        .navbar-start
+          router-link.navbar-item(to='/') Home
+          router-link.navbar-item(to='/page-1') Page 1
+          router-link.navbar-item(to='/page-2') Page 2
+          router-link.navbar-item(to='/page-3/subpage-3-1') Page 3
+          router-link.navbar-item(to='/page-4/subpage-4-1/subpage-4-1-1') Page 3
+
+    pre currentUrl: {{ currentUrl }}
+
     grid-components(:componentsList='componentsList', )
 
 </template>
@@ -14,8 +29,16 @@ export default {
   components: {
     GridComponents,
   },
+  props: {
+    pageUrl: {
+      default: 'home',
+      type: String,
+      required: false,
+    },
+  },
   data () {
     return {
+      currentUrl: '',
       componentsList: [
         {
           type: 'message-ui',
@@ -76,6 +99,14 @@ export default {
         },
       ],
     }
+  },
+  watch: {
+    pageUrl () {
+      this.currentUrl = this.pageUrl
+    },
+  },
+  mounted () {
+    this.currentUrl = this.pageUrl
   },
   methods: {
     updateDynamicComponents () {

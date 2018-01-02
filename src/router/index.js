@@ -5,11 +5,13 @@ import PageRender from '@/components/PageRender'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/:pageUrl*',
       name: 'PageRender',
       component: PageRender,
+      props: true,
     },
   ],
 })
