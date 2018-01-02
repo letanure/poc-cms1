@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - Removed CSS from base app component
 - Removed demo components from `HelloWorld`and updated tests
+- Rename HelloWorld to PageRender
 ### Deprecated
 ### Removed
 ### Fixed

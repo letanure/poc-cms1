@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.HelloWorld
+  div.PageRender
 
     grid-components(:componentsList='componentsList', )
 
@@ -10,7 +10,7 @@ import { clone } from 'lodash'
 import GridComponents from '@/components/GridComponents'
 
 export default {
-  name: 'HelloWorld',
+  name: 'PageRender',
   components: {
     GridComponents,
   },
@@ -88,5 +88,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .HelloWorld
+// .PageRender
 </style>
