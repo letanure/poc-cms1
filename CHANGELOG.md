@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased](../../compare/master...dev)
 ### Added
 ### Changed
+- Removed CSS from base app component
 ### Deprecated
 ### Removed
 ### Fixed
