@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Added /dist/ folder with build files
 ### Changed
 - Updated eslint config for test spec files and fixed the tests
 ### Deprecated
@@ -17,7 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - Add component Tabs from Bulma, with examples of usage on HelloWorld
 ### Fixed
-- Fix component name MessageUI to MessageUi and clean HTML template
+- Fix component name MessageUi to MessageUi and clean HTML template
 
 --
 ## [0.3.0](../../compare/0.2.0...0.3.0) - 28/12/2017
