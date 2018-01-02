@@ -1,17 +1,14 @@
-import { mount, shallow, createLocalVue } from 'vue-test-utils'
-import Vuex from 'vuex'
+import { mount } from 'vue-test-utils'
 import Component from '@/components/ui/MessageUi'
 
 describe(`${Component.name}.vue`, () => {
-
   describe('Props', () => {
-
     it('renders header when passed', () => {
       const prop = 'Header text'
       const wrapper = mount(Component, {
         propsData: {
           header: prop,
-        }
+        },
       })
       const text = wrapper.vm.$el.querySelector('.message-header').textContent.trim()
       expect(text).toBe(prop)
@@ -22,7 +19,7 @@ describe(`${Component.name}.vue`, () => {
       const wrapper = mount(Component, {
         propsData: {
           body: prop,
-        }
+        },
       })
       const text = wrapper.vm.$el.querySelector('.message-body').textContent.trim()
       expect(text).toBe(prop)
@@ -33,7 +30,7 @@ describe(`${Component.name}.vue`, () => {
       const wrapper = mount(Component, {
         propsData: {
           color: prop,
-        }
+        },
       })
       const classes = wrapper.classes()
       expect(classes).toContain('is-dark')
@@ -44,7 +41,7 @@ describe(`${Component.name}.vue`, () => {
       const wrapper = mount(Component, {
         propsData: {
           size: prop,
-        }
+        },
       })
       const classes = wrapper.classes()
       expect(classes).toContain('is-large')
@@ -57,12 +54,11 @@ describe(`${Component.name}.vue`, () => {
         propsData: {
           color: propColor,
           size: propSize,
-        }
+        },
       })
       const classes = wrapper.classes()
       expect(classes).toContain('is-large')
       expect(classes).toContain('is-success')
     })
-
   })
 })

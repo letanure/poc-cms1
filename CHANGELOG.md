@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [Unreleased](../../compare/master...dev)
 ### Added
 ### Changed
 ### Deprecated
@@ -12,13 +12,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 ### Security
 
+## [0.5.0](../../compare/0.4.0...0.5.0) - 02/01/2018
+### Added
+- Added /docs/ folder with build files
+### Changed
+- Updated eslint config for test spec files and fixed the tests
+- Updated builded folder from `dist` to `docs` to use with gh pages
+
+---
 ## [0.4.0](../../compare/0.3.0...0.4.0) - 29/12/2017
 ### Added
 - Add component Tabs from Bulma, with examples of usage on HelloWorld
 ### Fixed
-- Fix component name MessageUI to MessageUi and clean HTML template
+- Fix component name MessageUi to MessageUi and clean HTML template
 
---
+---
 ## [0.3.0](../../compare/0.2.0...0.3.0) - 28/12/2017
 ### Added
 
