@@ -11,7 +11,7 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#AppCms', 5000)
-      .assert.elementPresent('.HelloWorld')
+      .assert.elementPresent('.PageRender')
       .end()
   },
 }
