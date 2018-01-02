@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added component `GridComponents` to render dynamic components with the grid
 ### Changed
 - Removed CSS from base app component
+- Removed demo components from `HelloWorld`and updated tests
 ### Deprecated
 ### Removed
 ### Fixed
