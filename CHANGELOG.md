@@ -6,9 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
-- Added /dist/ folder with build files
+- Added /docs/ folder with build files
 ### Changed
 - Updated eslint config for test spec files and fixed the tests
+- Updated builded folder from `dist` to `docs` to use with gh pages
 ### Deprecated
 ### Removed
 ### Fixed
