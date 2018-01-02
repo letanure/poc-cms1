@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Added component `GridComponents` to render dynamic components with the grid
 ### Changed
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
 - Removed CSS from base app component
