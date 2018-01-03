@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Add mock API for pages with random data components
 - Added component `GridComponents` to render dynamic components with the grid
 ### Changed
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
