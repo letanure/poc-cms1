@@ -8,7 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - Added component `GridComponents` to render dynamic components with the grid
 ### Changed
+<<<<<<< HEAD
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
+=======
+>>>>>>> bd20e8e2b3f48fcf8d1aca5d20d973fe5781d909
 - Removed CSS from base app component
 - Removed demo components from `HelloWorld`and updated tests
 - Rename HelloWorld to PageRender
