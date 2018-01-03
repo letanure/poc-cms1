@@ -1,6 +1,6 @@
 {
   "name": "poc-cms",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Proof of concept for CMS",
   "repository": "git@github.com:letanure/poc-cms.git",
   "author": "Luiz Tanure <letanure@gmail.com>",
