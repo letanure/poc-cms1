@@ -8,7 +8,7 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/:pageUrl*',
+      path: '/:url*',
       name: 'PageRender',
       component: PageRender,
       props: true,

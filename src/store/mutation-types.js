@@ -1,2 +1,2 @@
-export const UPDATE_URL = 'UPDATE_URL'
-export const UPDATE_CONTENT = 'UPDATE_CONTENT'
+export const PAGE_UPDATE_URL = 'UPDATE_URL'
+export const PAGE_UPDATE_CONTENT = 'UPDATE_CONTENT'
