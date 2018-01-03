@@ -10,9 +10,8 @@ module.exports = {
 
     browser
       .url(devServer)
-      .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.HelloWorld')
-      .assert.containsText('h1', 'Start App')
+      .waitForElementVisible('#AppCms', 5000)
+      .assert.elementPresent('.PageRender')
       .end()
   },
 }
