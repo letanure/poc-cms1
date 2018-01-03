@@ -12,6 +12,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 ### Security
 
+
+---
+## [0.6.0](../../compare/0.5.0...0.6.0) - 03/01/2018
+### Added
+- Add store page config
+- Add mock API for pages with random data components
+- Added component `GridComponents` to render dynamic components with the grid
+- Added wrapper for axios to keep http lib client isolated
+- Add PageApi
+- Load page componnets from mocked api on url change
+### Changed
+- Updated vuejs webpack template from 1.2.7 to 1.2.8
+- Removed CSS from base app component
+- Removed demo components from `HelloWorld`and updated tests
+- Rename HelloWorld to PageRender
+### Removed
+- Removed demo store counter and test
+
+---
 ## [0.5.0](../../compare/0.4.0...0.5.0) - 02/01/2018
 ### Added
 - Added /docs/ folder with build files
