@@ -1,5 +1,10 @@
 import store from '@/store/modules/page'
 import * as types from '@/store/mutation-types'
+import PagesApi from '@/api/page'
+
+jest.mock('@/api/page', () => ({
+  getPageContent: jest.fn(() => Promise.resolve({ data: 3 }))
+}))
 
 describe('Store page', () => {
   describe('Actions', () => {
@@ -13,11 +18,17 @@ describe('Store page', () => {
       }
     })
 
-    it('updateUrl calls commit', () => {
+    it('updateUrl calls fetch page', () => {
       const url = 'test'
       store.actions.updateUrl(context, url)
-      expect(context.commit).toHaveBeenCalledWith(types.PAGE_UPDATE_URL, { url})
+      expect(PagesApi.getPageContent).toBeCalledWith('test')
     })
+
+    // it('updateUrl calls commit', () => {
+    //   const url = 'test'
+    //   store.actions.updateUrl(context, url)
+    //   expect(context.commit).toHaveBeenCalledWith(types.PAGE_UPDATE_URL, { url})
+    // })
 
   })
 

@@ -1,3 +1,4 @@
+import PagesApi from '@/api/page'
 import * as types from '../mutation-types'
 
 // initial state
@@ -15,7 +16,12 @@ const getters = {
 // actions
 const actions = {
   updateUrl ({ commit }, url) {
-    commit(types.PAGE_UPDATE_URL, { url })
+    PagesApi
+      .getPageContent(url)
+      .then((content) => {
+        commit(types.PAGE_UPDATE_CONTENT, { content })
+        commit(types.PAGE_UPDATE_URL, { url })
+      })
   },
 }
 
