@@ -9,7 +9,7 @@
     "api": "json-server --watch mock-api/index.js --port 3004",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "unit": "jest --config test/unit/jest.conf.js --coverage --verbose",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs mock-api/",
@@ -18,6 +18,7 @@
     "precommit": "npm run test"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "lodash": "^4.17.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
