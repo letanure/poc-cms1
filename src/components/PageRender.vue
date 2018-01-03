@@ -44,7 +44,7 @@ export default {
     'pageContent',
   ]),
   watch: {
-    pageUrl () {
+    url () {
       this.currentUrl = this.url
     },
 
