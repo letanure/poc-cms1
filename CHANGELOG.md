@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased](../../compare/master...dev)
 ### Added
 ### Changed
+- Updated page store with action returning a promise
 ### Deprecated
 ### Removed
 ### Fixed

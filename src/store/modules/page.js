@@ -16,12 +16,15 @@ const getters = {
 // actions
 const actions = {
   updateUrl ({ commit }, url) {
-    PagesApi
-      .getPageContent(url)
-      .then((content) => {
-        commit(types.PAGE_UPDATE_CONTENT, { content })
-        commit(types.PAGE_UPDATE_URL, { url })
-      })
+    return new Promise((resolve) => {
+      PagesApi
+        .getPageContent(url)
+        .then((content) => {
+          commit(types.PAGE_UPDATE_CONTENT, { content })
+          commit(types.PAGE_UPDATE_URL, { url })
+          resolve()
+        })
+    })
   },
 }
 
