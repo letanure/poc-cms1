@@ -6,7 +6,7 @@
         General
       ul.menu-list
         li
-          router-link(:to='{ name: "AdminDashnoard"}', )
+          router-link(:to='{ name: "AdminDashboard"}', )
             span.icon.is-small
               i.fa.fa-tachometer
             |  Dashboard

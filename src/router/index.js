@@ -61,7 +61,7 @@ const router = new Router({
       children: [
         {
           path: '',
-          name: 'AdminDashnoard',
+          name: 'AdminDashboard',
           components: {
             header: AdminHeader,
             main: DashboardAdmin,

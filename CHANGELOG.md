@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed typo in router AdminDashboard name
 ### Security
 
 
