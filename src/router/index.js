@@ -9,6 +9,13 @@ import AdminHeader from '@/components/admin/ui/AdminHeader'
 import SideMenu from '@/components/admin/ui/SideMenu'
 import DashboardAdmin from '@/components/admin/DashboardAdmin'
 import ListPages from '@/components/admin/ListPages'
+import ListAssets from '@/components/admin/ListAssets'
+import ListCollections from '@/components/admin/ListCollections'
+import ListForms from '@/components/admin/ListForms'
+import ListUsers from '@/components/admin/ListUsers'
+import ListSettings from '@/components/admin/ListSettings'
+import ListLanguages from '@/components/admin/ListLanguages'
+import ListChannels from '@/components/admin/ListChannels'
 
 Vue.use(Router)
 
@@ -71,6 +78,7 @@ const router = new Router({
             requiresAuth: false,
           },
         },
+        // pages
         {
           path: 'pages',
           name: 'PagesList',
@@ -96,6 +104,97 @@ const router = new Router({
               name: 'PagesEdit',
               // component: CategoriesForm,
               props: true,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+          ],
+        },
+        // Assets
+        {
+          path: 'assets',
+          name: 'AdminAssets',
+          components: {
+            header: AdminHeader,
+            main: ListAssets,
+            sidebar: SideMenu,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        // Collections
+        {
+          path: 'collections',
+          name: 'AdminCollections',
+          components: {
+            header: AdminHeader,
+            main: ListCollections,
+            sidebar: SideMenu,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        // Forms
+        {
+          path: 'forms',
+          name: 'AdminForms',
+          components: {
+            header: AdminHeader,
+            main: ListForms,
+            sidebar: SideMenu,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        // Users
+        {
+          path: 'users',
+          name: 'AdminUsers',
+          components: {
+            header: AdminHeader,
+            main: ListUsers,
+            sidebar: SideMenu,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        // Settings
+        {
+          path: 'settings',
+          name: 'AdminSettings',
+          components: {
+            header: AdminHeader,
+            main: ListSettings,
+            sidebar: SideMenu,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+          children: [
+            {
+              path: 'languages',
+              name: 'AdminLanguages',
+              components: {
+                header: AdminHeader,
+                main: ListLanguages,
+                sidebar: SideMenu,
+              },
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'channels',
+              name: 'AdminChannels',
+              components: {
+                header: AdminHeader,
+                main: ListChannels,
+                sidebar: SideMenu,
+              },
               meta: {
                 requiresAuth: true,
               },
