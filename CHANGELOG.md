@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add demo admin component AdminHeader
 - Add demo admin component SideMenu
 - Add demo admin component DashboardAdmin
+- Add basic store pages
 ### Changed
 - Updated page store with action returning a promise
 ### Deprecated
