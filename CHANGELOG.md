@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - Add component for basic layout areas of admin section
 - Add basic store user
+- Add root admin route and check if page requires auth before navigate
 ### Changed
 - Updated page store with action returning a promise
 ### Deprecated
