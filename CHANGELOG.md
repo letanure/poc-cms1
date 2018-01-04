@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add component for basic layout areas of admin section
 - Add basic store user
 - Add root admin route and check if page requires auth before navigate
+- Add admin component SignIn
+- Add admin component SignUp
 ### Changed
 - Updated page store with action returning a promise
 ### Deprecated
@@ -25,7 +27,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added component `GridComponents` to render dynamic components with the grid
 - Added wrapper for axios to keep http lib client isolated
 - Add PageApi
-- Load page componnets from mocked api on url change
+- Load page components from mocked api on url change
 ### Changed
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
 - Removed CSS from base app component
