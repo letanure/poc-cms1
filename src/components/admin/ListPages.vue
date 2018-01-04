@@ -1,72 +1,46 @@
 <template lang="pug">
   .ListPages
 
-    .columns
-      .column
-        h1.title.
-          Pages
-        h2.subtitle.
-          Pages description
-
-    .columns
-      .column
-        .box
-          template(v-if='pagesList')
-            table.table.is-striped.is-hoverable.is-fullwidth()
-              thead
-                tr
-                  th.
-                    Name
-                  th.
-                    URL
-                  th.
-                    Actions
-              tbody
-                tr(v-for='page in pagesList', )
-                  td.
-                    {{ page.name }}
-                  td.
-                    {{ page.url }}
-                  td
-                    router-link.button.is-info.is-small.is-outlined(:to='{ name: "PagesEdit", params: { slug: page.slug }}', )
-                      icon-ui(type='pencil')
-                      span.
-                        Edit
-                    .button.is-danger.is-small.is-outlined(v-on:click='confirmRemove(page)',)
-                      icon-ui(type='trash')
-                      span.
-                        Delete
-
-          template(v-else)
-            h5.title.is-4
-              span.
-                No Pages yet.
-              router-link.button.is-info(:to='{ name: "PagesForm" }', ).
-                Add your first page
+    admin-table(
+      :itemPlural='itemPlural',
+      :itemSingular='itemSingular',
+      :routeAddName='routeAddName',
+      :routeEditName='routeEditName',
+      :storeGetter='storeGetter',
+      :storeRemove='storeRemove',
+      :subtitle='subtitle',
+      :tableCols='tableCols',
+      :title='title',
+      )
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { IconUi } from '@/components/ui'
+import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
   name: 'ListPages',
   components: {
-    IconUi,
+    AdminTable,
   },
-  computed: {
-    ...mapGetters([
-      'pagesList',
-    ]),
+  data () {
+    return {
+      itemPlural: 'Pages',
+      itemSingular: 'Page',
+      routeAddName: 'PageAdd',
+      routeEditName: 'PageEdit',
+      storeGetter: 'pagesList',
+      storeRemove: 'pageRemove',
+      subtitle: 'Pages description',
+      tableCols: [
+        { label: 'Name', prop: 'name' },
+        { label: 'URL', prop: 'url' },
+      ],
+      title: 'Pages',
+    }
   },
 }
 </script>
 
 <style lang="stylus">
-.ListPages
-  .button
-    margin-right 5px
-
-    &:last-children
-      margin-right 0
+// .ListPages
 </style>

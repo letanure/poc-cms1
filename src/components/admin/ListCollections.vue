@@ -1,73 +1,46 @@
 <template lang="pug">
   .ListCollections
 
-    .columns
-      .column
-        h1.title.
-          Collections
-        h2.subtitle.
-          Collections description
-
-    .columns
-      .column
-        .box
-          template(v-if='collectionsList')
-            table.table.is-striped.is-hoverable.is-fullwidth()
-              thead
-                tr
-                  th.
-                    Name
-                  th.
-                    Actions
-              tbody(is='transition-group', name='list')
-                tr(v-for='(itemRow, key) in collectionsList', :key='key')
-                  td.
-                    {{ itemRow.name }}
-                  td
-                    router-link.button.is-info.is-small.is-outlined(:to='{ name: "PagesEdit", params: { slug: itemRow.slug }}', )
-                      icon-ui(type='pencil')
-                      span.
-                        Edit
-                    .button.is-danger.is-small.is-outlined(v-on:click='remove(key)',)
-                      icon-ui(type='trash')
-                      span.
-                        Delete
-
-          template(v-else)
-            h5.title.is-4
-              span.
-                No CollectionsList yet.
-              router-link.button.is-info(:to='{ name: "PagesForm" }', ).
-                Add your first collection
+    admin-table(
+      :itemPlural='itemPlural',
+      :itemSingular='itemSingular',
+      :routeAddName='routeAddName',
+      :routeEditName='routeEditName',
+      :storeGetter='storeGetter',
+      :storeRemove='storeRemove',
+      :subtitle='subtitle',
+      :tableCols='tableCols',
+      :title='title',
+      )
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { IconUi } from '@/components/ui'
+import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
   name: 'ListCollections',
   components: {
-    IconUi,
+    AdminTable,
   },
-  computed: {
-    ...mapGetters([
-      'collectionsList',
-    ]),
-  },
-  methods: {
-    remove (key) {
-      this.$store.dispatch('collectiontRemove', key)
-    },
+  data () {
+    return {
+      itemPlural: 'Collections',
+      itemSingular: 'Collection',
+      routeAddName: 'PagesAdd',
+      routeEditName: 'PagesEdit',
+      storeGetter: 'collectionsList',
+      storeRemove: 'collectiontRemove',
+      subtitle: 'Collections description',
+      tableCols: [
+        { label: 'Name', prop: 'name' },
+        { label: 'Slug', prop: 'slug' },
+      ],
+      title: 'Collections',
+    }
   },
 }
 </script>
 
 <style lang="stylus">
 // .ListCollections
-.list-enter-active, .list-leave-active
-  transition all .3s linear
-.list-enter, .list-leave-to
-  opacity 0
-  transform translateX(50px)
 </style>

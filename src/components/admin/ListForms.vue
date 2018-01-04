@@ -1,44 +1,42 @@
 <template lang="pug">
   .ListForms
 
-    .columns
-      .column
-        h1.title.
-          Forms
-        h2.subtitle.
-          Forms description
-
-    .columns
-      .column
-        .box
-          table.table.is-striped.is-hoverable.is-fullwidth()
-            thead
-              tr
-                th.
-                  Forms Header 1
-                th.
-                  Forms Header 2
-                th.
-                  Actions
-            tbody
-              tr
-                td.
-                  content 1
-                td.
-                  content 2
-                td
-                  button.button.is-info.is-small.is-outlined()
-                    span.
-                      Edit
-                  .button.is-danger.is-small.is-outlined()
-                    span.
-                      Delete
+    admin-table(
+      :itemPlural='itemPlural',
+      :itemSingular='itemSingular',
+      :routeAddName='routeAddName',
+      :routeEditName='routeEditName',
+      :storeGetter='storeGetter',
+      :storeRemove='storeRemove',
+      :subtitle='subtitle',
+      :tableCols='tableCols',
+      :title='title',
+      )
 </template>
 
 <script>
+import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
   name: 'ListForms',
+  components: {
+    AdminTable,
+  },
+  data () {
+    return {
+      itemPlural: 'Forms',
+      itemSingular: 'Form',
+      routeAddName: 'FormAdd',
+      routeEditName: 'FormEdit',
+      storeGetter: 'formsList',
+      storeRemove: 'formRemove',
+      subtitle: 'Forms description',
+      tableCols: [
+        { label: 'Name', prop: 'name' },
+      ],
+      title: 'Forms',
+    }
+  },
 }
 </script>
 

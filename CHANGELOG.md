@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Removed container class from basic template index
 - Added container class to page render
 - Add .section to layoutadmin
+- Use admintable on pages
 ### Deprecated
 ### Removed
 ### Fixed
