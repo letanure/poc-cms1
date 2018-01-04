@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased](../../compare/master...dev)
 ### Added
 - Add component for basic layout areas of admin section
-- Add basic store user
+- Add basic store user, login, logout
 - Add root admin route and check if page requires auth before navigate
 - Add admin component SignIn
 - Add admin component SignUp

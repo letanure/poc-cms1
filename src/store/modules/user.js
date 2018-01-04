@@ -20,12 +20,23 @@ const actions = {
       resolve()
     })
   },
+
+  logout ({ commit }) {
+    return new Promise((resolve) => {
+      commit(types.USER_LOGOUT)
+      resolve()
+    })
+  },
 }
 
 // mutations
 const mutations = {
   [types.USER_LOGIN] (state, id) {
     state.id = id
+  },
+
+  [types.USER_LOGOUT] (state, id) {
+    state.id = null
   },
 }
 
