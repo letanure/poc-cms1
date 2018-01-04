@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Updated page store with action returning a promise
 - Removed container class from basic template index
 - Added container class to page render
+- Add .section to layoutadmin
 ### Deprecated
 ### Removed
 ### Fixed
