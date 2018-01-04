@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add admin component SignUp
 - Add demo admin component AdminHeader
 - Add demo admin component SideMenu
+- Add demo admin component DashboardAdmin
 ### Changed
 - Updated page store with action returning a promise
 ### Deprecated
