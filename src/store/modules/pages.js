@@ -5,10 +5,12 @@ const state = {
   pages: {
     1: {
       name: 'AAA',
+      slug: 'aa',
       url: '/AAA',
     },
     2: {
       name: 'BBB',
+      slug: 'bb',
       url: '/BBB',
     },
   },
