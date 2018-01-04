@@ -1,2 +1,3 @@
 export const PAGE_UPDATE_URL = 'UPDATE_URL'
 export const PAGE_UPDATE_CONTENT = 'UPDATE_CONTENT'
+export const USER_LOGIN = 'USER_LOGIN'

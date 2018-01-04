@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased](../../compare/master...dev)
 ### Added
 - Add component for basic layout areas of admin section
+- Add basic store user
 ### Changed
 - Updated page store with action returning a promise
 ### Deprecated
