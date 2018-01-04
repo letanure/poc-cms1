@@ -40,9 +40,9 @@
           template(v-else)
             h5.title.is-4
               span.
-                No Pages yet.
+                No Assets yet.
               router-link.button.is-info(:to='{ name: "PagesForm" }', ).
-                Add your first page
+                Add your first Asset
 </template>
 
 <script>
