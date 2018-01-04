@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add routes/pafes sign-in, sign-up, admin and admin pages
 - Add componnet IconUi
 - Add empty components for admin sections / lists
+- Add  component uiMenu
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
