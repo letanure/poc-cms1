@@ -1,71 +1,106 @@
 <template lang="pug">
   nav.SideMenu
-    .menu.animated.slideInLeft
+    menu-ui(:groups='menuGroups')
 
-      p.menu-label.
-        General
-      ul.menu-list
-        li
-          router-link(:to='{ name: "AdminDashboard"}', )
-            span.icon.is-small
-              i.fa.fa-tachometer
-            |  Dashboard
-
-      p.menu-label.
-        Pages
-
-      ul.menu-list
-        li
-          router-link(:to='{ name: "PagesList"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              List Pages
-        //- li
-          router-link(:to='{ name: "PagesAdd"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              Add Page
-
-      //- p.menu-label.
-        Categories
-      //- ul.menu-list
-        li
-          a(href='{ name: "CategoriesList"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              List Categories
-        li
-          a(href='{ name: "CategoriesForm"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              Add Categorie
-
-      //- p.menu-label.
-        Users
-      //- ul.menu-list
-        li
-          a(href='{ name: "UsersList"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              List Users
-        li
-          a(href='{ name: "UsersAdd"}', )
-            //- span.icon.is-small
-              i.fa.fa-tachometer
-            span.
-              Add User
+    //- .menu.animated.slideInLeft
 </template>
 
 <script>
+import { MenuUi } from '@/components/ui'
+
 export default {
   name: 'SideMenu',
+  components: {
+    MenuUi,
+  },
   data () {
     return {
+      menuGroups: [
+        {
+          label: 'General',
+          items: [
+            {
+              text: 'Dashboard',
+              icon: 'tachometer',
+              link: {
+                type: 'router',
+                name: 'AdminDashboard',
+              },
+            },
+            {
+              text: 'Pages',
+              icon: 'files-o',
+              link: {
+                type: 'router',
+                name: 'PagesList',
+              },
+            },
+            {
+              text: 'Assets',
+              icon: 'picture-o',
+              link: {
+                type: 'router',
+                name: 'AdminAssets',
+              },
+            },
+            {
+              text: 'Collections',
+              icon: 'list',
+              link: {
+                type: 'router',
+                name: 'AdminCollections',
+              },
+            },
+            {
+              text: 'Forms',
+              icon: 'wpforms',
+              link: {
+                type: 'router',
+                name: 'AdminForms',
+              },
+            },
+          ],
+        },
+        {
+          label: 'Administration',
+          items: [
+            {
+              text: 'Users',
+              icon: 'users',
+              link: {
+                type: 'router',
+                name: 'AdminUsers',
+              },
+            },
+            {
+              text: 'Settings',
+              icon: 'cog',
+              link: {
+                type: 'router',
+                name: 'AdminSettings',
+              },
+              subitems: [
+                {
+                  text: 'Languages',
+                  icon: 'language',
+                  link: {
+                    type: 'router',
+                    name: 'AdminLanguages',
+                  },
+                },
+                {
+                  text: 'Channels',
+                  icon: 'bullseye',
+                  link: {
+                    type: 'router',
+                    name: 'AdminChannels',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
     }
   },
   methods: {
