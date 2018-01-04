@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add demo admin component DashboardAdmin
 - Add basic store pages
 - Add basic componnet ListPages
+- Add routes/pafes sign-in, sign-up, admin and admin pages
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
