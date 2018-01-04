@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add component uiMenu
 - Add new routes admin with components
 - Add transitions on admin layout
+- Add store Assets
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
