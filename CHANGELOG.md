@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
+- Added container class to page render
 ### Deprecated
 ### Removed
 ### Fixed
