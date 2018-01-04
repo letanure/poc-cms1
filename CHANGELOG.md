@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add empty components for admin sections / lists
 - Add component uiMenu
 - Add new routes admin with components
+- Add transitions on admin layout
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
