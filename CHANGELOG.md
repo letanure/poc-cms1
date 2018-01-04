@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add root admin route and check if page requires auth before navigate
 - Add admin component SignIn
 - Add admin component SignUp
-- Add demo admin component AdminHeader
+- Add admin component AdminHeader with logout
 - Add demo admin component SideMenu
 - Add demo admin component DashboardAdmin
 - Add basic store pages
