@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add basic store pages
 ### Changed
 - Updated page store with action returning a promise
+- Removed container class from basic template index
 ### Deprecated
 ### Removed
 ### Fixed
