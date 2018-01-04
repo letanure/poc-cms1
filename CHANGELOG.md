@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add store Assets
 - Add store Collections
 - Add component ConfirmUi
+- Add component AdminTable to list stores
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
