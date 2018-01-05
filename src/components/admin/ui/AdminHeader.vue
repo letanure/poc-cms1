@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.AdminHeader.navbar.has-shadow(role='navigation', aria-label='main navigation', )
+  nav.AdminHeader.navbar.has-shadow.is-fixed-top(role='navigation', aria-label='main navigation', )
       .navbar-brand
         router-link.navbar-item(:to='{ name: "AdminDashboard" }', )
           .logo
@@ -30,6 +30,9 @@ export default {
     ...mapGetters([
       'isLoggedIn',
     ]),
+  },
+  beforeMount () {
+    document.documentElement.classList.add('has-navbar-fixed-top')
   },
   methods: {
     signOut () {
