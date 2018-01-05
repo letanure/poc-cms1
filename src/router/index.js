@@ -12,7 +12,7 @@ import PagesAdmin from '@/components/admin/PagesAdmin'
 import AssetsAdmin from '@/components/admin/AssetsAdmin'
 import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
 import FormsAdmin from '@/components/admin/FormsAdmin'
-import ListUsers from '@/components/admin/ListUsers'
+import UsersAdmin from '@/components/admin/UsersAdmin'
 import SettingsAdmin from '@/components/admin/SettingsAdmin'
 import LanguagesAdmin from '@/components/admin/LanguagesAdmin'
 import ChannelsAdmin from '@/components/admin/ChannelsAdmin'
@@ -155,7 +155,7 @@ const router = new Router({
           name: 'AdminUsers',
           components: {
             header: AdminHeader,
-            main: ListUsers,
+            main: UsersAdmin,
             sidebar: SideMenu,
           },
           meta: {
