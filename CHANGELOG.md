@@ -6,11 +6,44 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Add component for basic layout areas of admin section
+- Add basic store user, login, logout
+- Add root admin route and check if page requires auth before navigate
+- Add admin component SignIn
+- Add admin component SignUp
+- Add admin component AdminHeader with logout
+- Add admin component SideMenu, with new routes using uiMenu
+- Add demo admin component DashboardAdmin
+- Add basic store pages
+- Add basic componnet ListPages
+- Add routes/pafes sign-in, sign-up, admin and admin pages
+- Add componnet IconUi
+- Add empty components for admin sections / lists
+- Add component uiMenu
+- Add new routes admin with components
+- Add transitions on admin layout
+- Add store Assets
+- Add store Collections
+- Add store Forms
+- Add component ConfirmUi
+- Add component AdminTable to list stores
+- Add store users
+- Add store languages
+- Add store channels
+- Add fixed header admin
+- Add admin table for list store languages
+- Add admin table for list store users
 ### Changed
 - Updated page store with action returning a promise
+- Removed container class from basic template index
+- Added container class to page render
+- Add .section to layoutadmin
+- Use admintable on pages
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed typo in router AdminDashboard name
+- Fix nested routes in admin/settings
 ### Security
 
 
@@ -22,7 +55,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added component `GridComponents` to render dynamic components with the grid
 - Added wrapper for axios to keep http lib client isolated
 - Add PageApi
-- Load page componnets from mocked api on url change
+- Load page components from mocked api on url change
 ### Changed
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
 - Removed CSS from base app component
