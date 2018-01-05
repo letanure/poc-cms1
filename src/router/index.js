@@ -14,7 +14,7 @@ import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
 import FormsAdmin from '@/components/admin/FormsAdmin'
 import ListUsers from '@/components/admin/ListUsers'
 import ListSettings from '@/components/admin/ListSettings'
-import ListLanguages from '@/components/admin/ListLanguages'
+import LanguagesAdmin from '@/components/admin/LanguagesAdmin'
 import ChannelsAdmin from '@/components/admin/ChannelsAdmin'
 
 Vue.use(Router)
@@ -178,7 +178,7 @@ const router = new Router({
             {
               path: 'languages',
               name: 'AdminLanguages',
-              component: ListLanguages,
+              component: LanguagesAdmin,
               meta: {
                 requiresAuth: true,
               },
