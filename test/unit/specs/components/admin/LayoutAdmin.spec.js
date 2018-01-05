@@ -1,5 +1,5 @@
 import { mount } from 'vue-test-utils'
-import Component from '@/components/admin/LayoutAdmin'
+import Component from '@/components/admin/ui/LayoutAdmin'
 
 describe(`${Component.name}.vue`, () => {
   const createCmp = propsData => mount(Component, { propsData })

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import AdminTable from '@/components/admin/ui/AdminTable'
+import { AdminTable } from '@/components/admin/ui'
 
 export default {
   name: 'PagesAdmin',

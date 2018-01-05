@@ -2,20 +2,22 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store/index'
 import PageRender from '@/components/PageRender'
-import LayoutAdmin from '@/components/admin/LayoutAdmin'
-import SignIn from '@/components/admin/login/SignIn'
-import SignUp from '@/components/admin/login/SignUp'
-import AdminHeader from '@/components/admin/ui/AdminHeader'
-import SideMenu from '@/components/admin/ui/SideMenu'
-import DashboardAdmin from '@/components/admin/DashboardAdmin'
-import PagesAdmin from '@/components/admin/PagesAdmin'
-import AssetsAdmin from '@/components/admin/AssetsAdmin'
-import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
-import FormsAdmin from '@/components/admin/FormsAdmin'
-import UsersAdmin from '@/components/admin/UsersAdmin'
-import SettingsAdmin from '@/components/admin/SettingsAdmin'
-import LanguagesAdmin from '@/components/admin/LanguagesAdmin'
-import ChannelsAdmin from '@/components/admin/ChannelsAdmin'
+import {
+  AdminHeader,
+  AssetsAdmin,
+  ChannelsAdmin,
+  CollectionsAdmin,
+  DashboardAdmin,
+  FormsAdmin,
+  LanguagesAdmin,
+  LayoutAdmin,
+  PagesAdmin,
+  SettingsAdmin,
+  SideMenu,
+  SignIn,
+  SignUp,
+  UsersAdmin
+} from '@/components/admin/'
 
 Vue.use(Router)
 

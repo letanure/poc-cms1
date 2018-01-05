@@ -14,8 +14,7 @@
 
 <script>
 import { isEqual } from 'lodash'
-import MessageUi from '@/components/ui/MessageUi'
-import TabsUi from '@/components/ui/TabsUi'
+import { MessageUi, TabsUi } from '@/components/ui'
 
 export default {
   name: 'GridComponents',
