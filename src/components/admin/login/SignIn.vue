@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.section
+  section.SignIn.section
 
     .columns
       .column
@@ -53,6 +53,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+// .SignIn
 </style>

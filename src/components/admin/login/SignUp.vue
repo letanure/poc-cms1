@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.section
+  section.SignUp.section
     h1.title.has-text-centered Sign-up
     .columns
       .column.is-one-third
@@ -37,7 +37,6 @@ export default {
 }
 </script>
 
-<style>
-// Basic styles are pulled in from the Bulma framework https://bulma.io/
-// These style tags could be omitted as they arre not used.
+<style lang="stylus">
+// .SignUp
 </style>
