@@ -1,6 +1,6 @@
 {
   "name": "poc-cms",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Proof of concept for CMS",
   "repository": "git@github.com:letanure/poc-cms.git",
   "author": "Luiz Tanure <letanure@gmail.com>",
@@ -15,7 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs mock-api/",
     "build": "node build/build.js",
     "commitmsg": "validate-commit-msg",
-    "precommit": "npm run test"
+    "precommit": "npm run unit"
   },
   "dependencies": {
     "axios": "^0.17.1",

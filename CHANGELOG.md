@@ -6,45 +6,57 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
-- Add component for basic layout areas of admin section
-- Add basic store user, login, logout
-- Add root admin route and check if page requires auth before navigate
-- Add admin component SignIn
-- Add admin component SignUp
-- Add admin component AdminHeader with logout
-- Add admin component SideMenu, with new routes using uiMenu
-- Add demo admin component DashboardAdmin
-- Add basic store pages
-- Add basic componnet ListPages
-- Add routes/pafes sign-in, sign-up, admin and admin pages
-- Add componnet IconUi
-- Add empty components for admin sections / lists
-- Add component uiMenu
-- Add new routes admin with components
-- Add transitions on admin layout
-- Add store Assets
-- Add store Collections
-- Add store Forms
-- Add component ConfirmUi
-- Add component AdminTable to list stores
-- Add store users
-- Add store languages
-- Add store channels
-- Add fixed header admin
-- Add admin table for list store languages
-- Add admin table for list store users
 ### Changed
-- Updated page store with action returning a promise
-- Removed container class from basic template index
-- Added container class to page render
-- Add .section to layoutadmin
-- Use admintable on pages
 ### Deprecated
 ### Removed
 ### Fixed
-- Fixed typo in router AdminDashboard name
-- Fix nested routes in admin/settings
 ### Security
+
+---
+## [0.7.0](../../compare/0.6.0...0.7.0) - 05/01/2018
+### Added
+- Route changes
+  - Add root admin route and check if page requires auth before navigate
+- General
+  - Add page/components transitions
+  - Created the pattern for stores, returning Promises
+  - Updated basic html templates (whitout container classes)
+- Add new UI components
+  - menuUi: renders a bulma menu
+  - iconUi: renders a bulma font awesome icon
+  - ConfirmUi: renders a bulma modal with actions to confirm / close
+- Add admin section
+  - layout components
+    - AdminHeader: logo and logout button
+    - AdminTable: receive text and store as props and renders a title and table with itens from store and edit(not working)/remove
+    - LayoutAdmin: 4 areas in router-view (footer, header, main, sidebar)
+    - SideMenu: Menu using new menuUi componnet with list of links of admin
+  - sections
+    - Login:
+      - Sign In: just a component sending data do the User Store
+      - Sign In: just a component without functionality
+    - Assets
+      - Add Store Assets
+      - Add title and table using the AdminTable component
+    - Dashboard
+      - Markup demo only
+    - Pages
+      - Add Store Pages
+      - Add title and table using the AdminTable component
+    - Collections
+      - Add Store Collections
+      - Add title and table using the AdminTable component
+    - Forms
+      - Add Store Forms
+      - Add title and table using the AdminTable component
+    - Settings
+      - empty home of settings
+    - Settings/Languages
+      - Add Store Languages
+      - Add title and table using the AdminTable component
+    - Settings/Channels
+      - Add Store Channels
+      - Add title and table using the AdminTable component
 
 
 ---
