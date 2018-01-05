@@ -5,15 +5,15 @@ import * as types from '../mutation-types'
 const state = {
   collections: {
     1: {
-      name: 'colelction 1',
+      name: 'collection 1',
       slug: 'aa',
     },
     2: {
-      name: 'colelction 2',
+      name: 'collection 2',
       slug: 'bb',
     },
     3: {
-      name: 'colelction 3',
+      name: 'collection 3',
       slug: 'cc',
     },
   },
