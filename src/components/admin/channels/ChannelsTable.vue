@@ -9,9 +9,7 @@
       :routeEditName='routeEditName',
       :storeGetter='storeGetter',
       :storeRemove='storeRemove',
-      :subtitle='subtitle',
       :tableCols='tableCols',
-      :title='title',
       )
 </template>
 
@@ -32,11 +30,9 @@ export default {
       routeEditName: 'ChannelsEdit',
       storeGetter: 'channelsList',
       storeRemove: 'channelRemove',
-      subtitle: 'Channels description',
       tableCols: [
         { label: 'Name', prop: 'name' },
       ],
-      title: 'Channels',
     }
   },
 }

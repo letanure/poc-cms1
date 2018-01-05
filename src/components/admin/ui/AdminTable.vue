@@ -88,20 +88,10 @@ export default {
       type: String,
       required: true,
     },
-    subtitle: {
-      default: '',
-      type: String,
-      required: false,
-    },
     tableCols: {
       default: () => [],
       type: Array,
       required: true,
-    },
-    title: {
-      default: '',
-      type: String,
-      required: false,
     },
   },
   data () {

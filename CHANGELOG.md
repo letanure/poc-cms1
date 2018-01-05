@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 ### Deprecated
 ### Removed
+- Removed old props title and subtitle in AdminTable
 ### Fixed
 ### Security
 

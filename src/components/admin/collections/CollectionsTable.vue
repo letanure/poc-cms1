@@ -9,9 +9,7 @@
       :routeEditName='routeEditName',
       :storeGetter='storeGetter',
       :storeRemove='storeRemove',
-      :subtitle='subtitle',
       :tableCols='tableCols',
-      :title='title',
       )
 </template>
 
@@ -32,12 +30,10 @@ export default {
       routeEditName: 'CollectionsEdit',
       storeGetter: 'collectionsList',
       storeRemove: 'collectiontRemove',
-      subtitle: 'Collections description',
       tableCols: [
         { label: 'Name', prop: 'name' },
         { label: 'Slug', prop: 'slug' },
       ],
-      title: 'Collections',
     }
   },
 }
