@@ -15,7 +15,7 @@ import ListForms from '@/components/admin/ListForms'
 import ListUsers from '@/components/admin/ListUsers'
 import ListSettings from '@/components/admin/ListSettings'
 import ListLanguages from '@/components/admin/ListLanguages'
-import ListChannels from '@/components/admin/ListChannels'
+import ChannelsAdmin from '@/components/admin/ChannelsAdmin'
 
 Vue.use(Router)
 
@@ -186,7 +186,7 @@ const router = new Router({
             {
               path: 'channels',
               name: 'AdminChannels',
-              component: ListChannels,
+              component: ChannelsAdmin,
               meta: {
                 requiresAuth: true,
               },
