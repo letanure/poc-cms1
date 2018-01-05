@@ -10,7 +10,7 @@ import SideMenu from '@/components/admin/ui/SideMenu'
 import DashboardAdmin from '@/components/admin/DashboardAdmin'
 import ListPages from '@/components/admin/ListPages'
 import AssetsAdmin from '@/components/admin/AssetsAdmin'
-import ListCollections from '@/components/admin/ListCollections'
+import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
 import ListForms from '@/components/admin/ListForms'
 import ListUsers from '@/components/admin/ListUsers'
 import ListSettings from '@/components/admin/ListSettings'
@@ -129,7 +129,7 @@ const router = new Router({
           name: 'AdminCollections',
           components: {
             header: AdminHeader,
-            main: ListCollections,
+            main: CollectionsAdmin,
             sidebar: SideMenu,
           },
           meta: {
