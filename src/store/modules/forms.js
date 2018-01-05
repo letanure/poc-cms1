@@ -5,14 +5,17 @@ import * as types from '../mutation-types'
 const state = {
   forms: {
     1: {
+      id: 5,
       name: 'form 1',
       slug: 'aa',
     },
     2: {
+      id: 8,
       name: 'form 2',
       slug: 'bb',
     },
     3: {
+      id: 9,
       name: 'form 3',
       slug: 'cc',
     },

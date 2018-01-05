@@ -24,7 +24,7 @@ export default {
               icon: 'tachometer',
               link: {
                 type: 'router',
-                name: 'AdminDashboard',
+                name: 'DashboardAdmin',
               },
             },
             {
@@ -40,7 +40,7 @@ export default {
               icon: 'picture-o',
               link: {
                 type: 'router',
-                name: 'AdminAssets',
+                name: 'AssetsList',
               },
             },
             {
@@ -48,7 +48,7 @@ export default {
               icon: 'list',
               link: {
                 type: 'router',
-                name: 'AdminCollections',
+                name: 'CollectionsList',
               },
             },
             {
@@ -56,7 +56,7 @@ export default {
               icon: 'wpforms',
               link: {
                 type: 'router',
-                name: 'AdminForms',
+                name: 'FormsList',
               },
             },
           ],
@@ -69,7 +69,7 @@ export default {
               icon: 'users',
               link: {
                 type: 'router',
-                name: 'AdminUsers',
+                name: 'UsersList',
               },
             },
             {
@@ -77,7 +77,7 @@ export default {
               icon: 'cog',
               link: {
                 type: 'router',
-                name: 'AdminSettings',
+                name: 'SettingsList',
               },
               subitems: [
                 {
@@ -85,7 +85,7 @@ export default {
                   icon: 'language',
                   link: {
                     type: 'router',
-                    name: 'AdminLanguages',
+                    name: 'LanguagesList',
                   },
                 },
                 {
@@ -93,7 +93,7 @@ export default {
                   icon: 'bullseye',
                   link: {
                     type: 'router',
-                    name: 'AdminChannels',
+                    name: 'ChannelsList',
                   },
                 },
               ],

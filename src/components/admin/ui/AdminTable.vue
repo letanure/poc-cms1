@@ -1,46 +1,36 @@
 <template lang="pug">
   .AdminTable
 
-    .columns
-      .column
-        h1.title.
-          {{ title }}
-        h2.subtitle.
-          {{ subtitle }}
+    template(v-if='hasList')
+      table.table.is-striped.is-hoverable.is-fullwidth()
+        thead
+          tr
+            template(v-for='(col, index) in tableCols')
+              th.
+                {{ col.label }}
+            th.
+              Actions
+        tbody(is='transition-group', name='tableRowSlide')
+          tr(v-for='(itemRow, key) in storeList', :key='key')
+            template(v-for='(col, index) in tableCols')
+              td.
+                {{ itemRow[col.prop] }}
+            td
+              router-link.button.is-info.is-small.is-outlined(:to='{ name: routeEditName, params: { slug: itemRow[itemKey] }}', )
+                icon-ui(type='pencil')
+                span.
+                  Edit
+              .button.is-danger.is-small.is-outlined(@click='confirmRemove(key)',)
+                icon-ui(type='trash')
+                span.
+                  Delete
 
-    .columns
-      .column
-        .box
-          template(v-if='hasList')
-            table.table.is-striped.is-hoverable.is-fullwidth()
-              thead
-                tr
-                  template(v-for='(col, index) in tableCols')
-                    th.
-                      {{ col.label }}
-                  th.
-                    Actions
-              tbody(is='transition-group', name='tableRowSlide')
-                tr(v-for='(itemRow, key) in storeList', :key='key')
-                  template(v-for='(col, index) in tableCols')
-                    td.
-                      {{ itemRow[col.prop] }}
-                  td
-                    router-link.button.is-info.is-small.is-outlined(:to='{ name: routeEditName, params: { slug: itemRow.slug }}', )
-                      icon-ui(type='pencil')
-                      span.
-                        Edit
-                    .button.is-danger.is-small.is-outlined(@click='confirmRemove(key)',)
-                      icon-ui(type='trash')
-                      span.
-                        Delete
-
-          template(v-else)
-            h5.title.is-5
-              span.
-                No {{ itemPlural }} yet.
-            router-link.button.is-info(:to='{ name: routeAddName }', ).
-              Add your first {{ itemSingular }}
+    template(v-else)
+      h5.title.is-5
+        span.
+          No {{ itemPlural }} yet.
+      router-link.button.is-info(:to='{ name: routeAddName }', ).
+        Add your first {{ itemSingular }}
 
     transition(name='fade', appear)
       confirm-ui(v-show='activeModal'
@@ -63,6 +53,11 @@ export default {
     IconUi,
   },
   props: {
+    itemKey: {
+      default: '',
+      type: String,
+      required: false,
+    },
     itemPlural: {
       default: 'Items',
       type: String,

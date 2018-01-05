@@ -4,19 +4,33 @@ import store from '@/store/index'
 import PageRender from '@/components/PageRender'
 import {
   AdminHeader,
-  AssetsAdmin,
-  ChannelsAdmin,
-  CollectionsAdmin,
   DashboardAdmin,
-  FormsAdmin,
-  LanguagesAdmin,
   LayoutAdmin,
-  PagesAdmin,
   SettingsAdmin,
   SideMenu,
   SignIn,
   SignUp,
-  UsersAdmin
+  PagesAdmin,
+  PagesForm,
+  PagesTable,
+  AssetsAdmin,
+  AssetsForm,
+  AssetsTable,
+  ChannelsAdmin,
+  ChannelsForm,
+  ChannelsTable,
+  CollectionsAdmin,
+  CollectionsForm,
+  CollectionsTable,
+  FormsAdmin,
+  FormsForm,
+  FormsTable,
+  LanguagesAdmin,
+  LanguagesForm,
+  LanguagesTable,
+  UsersAdmin,
+  UsersForm,
+  UsersTable
 } from '@/components/admin/'
 
 Vue.use(Router)
@@ -70,7 +84,7 @@ const router = new Router({
       children: [
         {
           path: '',
-          name: 'AdminDashboard',
+          name: 'DashboardAdmin',
           components: {
             header: AdminHeader,
             main: DashboardAdmin,
@@ -83,7 +97,6 @@ const router = new Router({
         // pages
         {
           path: 'pages',
-          name: 'PagesList',
           components: {
             header: AdminHeader,
             main: PagesAdmin,
@@ -94,9 +107,17 @@ const router = new Router({
           },
           children: [
             {
+              path: '',
+              name: 'PagesList',
+              component: PagesTable,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
               path: 'add',
               name: 'PagesAdd',
-              // component: InfluencersForm,
+              component: PagesForm,
               meta: {
                 requiresAuth: true,
               },
@@ -104,7 +125,7 @@ const router = new Router({
             {
               path: 'edit/:slug',
               name: 'PagesEdit',
-              // component: CategoriesForm,
+              component: PagesForm,
               props: true,
               meta: {
                 requiresAuth: true,
@@ -115,59 +136,166 @@ const router = new Router({
         // Assets
         {
           path: 'assets',
-          name: 'AdminAssets',
           components: {
             header: AdminHeader,
             main: AssetsAdmin,
             sidebar: SideMenu,
           },
           meta: {
-            requiresAuth: true,
+            requiresAuth: false,
           },
+          children: [
+            {
+              path: '',
+              name: 'AssetsList',
+              component: AssetsTable,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'add',
+              name: 'AssetsAdd',
+              component: AssetsForm,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'edit/:slug',
+              name: 'AssetsEdit',
+              component: AssetsForm,
+              props: true,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+          ],
         },
+
         // Collections
         {
           path: 'collections',
-          name: 'AdminCollections',
           components: {
             header: AdminHeader,
             main: CollectionsAdmin,
             sidebar: SideMenu,
           },
           meta: {
-            requiresAuth: true,
+            requiresAuth: false,
           },
+          children: [
+            {
+              path: '',
+              name: 'CollectionsList',
+              component: CollectionsTable,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'add',
+              name: 'CollectionsAdd',
+              component: CollectionsForm,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'edit/:slug',
+              name: 'CollectionsEdit',
+              component: CollectionsForm,
+              props: true,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+          ],
         },
+
         // Forms
         {
           path: 'forms',
-          name: 'AdminForms',
           components: {
             header: AdminHeader,
             main: FormsAdmin,
             sidebar: SideMenu,
           },
           meta: {
-            requiresAuth: true,
+            requiresAuth: false,
           },
+          children: [
+            {
+              path: '',
+              name: 'FormsList',
+              component: FormsTable,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'add',
+              name: 'FormsAdd',
+              component: FormsForm,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'edit/:slug',
+              name: 'FormsEdit',
+              component: FormsForm,
+              props: true,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+          ],
         },
+
         // Users
         {
           path: 'users',
-          name: 'AdminUsers',
           components: {
             header: AdminHeader,
             main: UsersAdmin,
             sidebar: SideMenu,
           },
           meta: {
-            requiresAuth: true,
+            requiresAuth: false,
           },
+          children: [
+            {
+              path: '',
+              name: 'UsersList',
+              component: UsersTable,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'add',
+              name: 'UsersAdd',
+              component: UsersForm,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+            {
+              path: 'edit/:slug',
+              name: 'UsersEdit',
+              component: UsersForm,
+              props: true,
+              meta: {
+                requiresAuth: true,
+              },
+            },
+          ],
         },
+
         // Settings
         {
           path: 'settings',
-          name: 'AdminSettings',
           components: {
             header: AdminHeader,
             main: SettingsAdmin,
@@ -177,21 +305,83 @@ const router = new Router({
             requiresAuth: true,
           },
           children: [
+            // Languages
             {
-              path: 'languages',
-              name: 'AdminLanguages',
-              component: LanguagesAdmin,
+              path: '',
+              name: 'SettingsList',
+              component: SettingsAdmin,
               meta: {
                 requiresAuth: true,
               },
             },
             {
+              path: 'languages',
+              component: LanguagesAdmin,
+              meta: {
+                requiresAuth: false,
+              },
+              children: [
+                {
+                  path: '',
+                  name: 'LanguagesList',
+                  component: LanguagesTable,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+                {
+                  path: 'add',
+                  name: 'LanguagesAdd',
+                  component: LanguagesForm,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+                {
+                  path: 'edit/:slug',
+                  name: 'LanguagesEdit',
+                  component: LanguagesForm,
+                  props: true,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+              ],
+            },
+            // Channels
+            {
               path: 'channels',
-              name: 'AdminChannels',
               component: ChannelsAdmin,
               meta: {
-                requiresAuth: true,
+                requiresAuth: false,
               },
+              children: [
+                {
+                  path: '',
+                  name: 'ChannelsList',
+                  component: ChannelsTable,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+                {
+                  path: 'add',
+                  name: 'ChannelsAdd',
+                  component: ChannelsForm,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+                {
+                  path: 'edit/:slug',
+                  name: 'ChannelsEdit',
+                  component: LanguagesForm,
+                  props: true,
+                  meta: {
+                    requiresAuth: true,
+                  },
+                },
+              ],
             },
           ],
         },
