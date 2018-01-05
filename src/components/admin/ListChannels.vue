@@ -33,7 +33,6 @@ export default {
       subtitle: 'Channels description',
       tableCols: [
         { label: 'Name', prop: 'name' },
-        { label: 'Type', prop: 'type' },
       ],
       title: 'Channels',
     }
