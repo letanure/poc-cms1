@@ -11,7 +11,7 @@ import DashboardAdmin from '@/components/admin/DashboardAdmin'
 import ListPages from '@/components/admin/ListPages'
 import AssetsAdmin from '@/components/admin/AssetsAdmin'
 import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
-import ListForms from '@/components/admin/ListForms'
+import FormsAdmin from '@/components/admin/FormsAdmin'
 import ListUsers from '@/components/admin/ListUsers'
 import ListSettings from '@/components/admin/ListSettings'
 import ListLanguages from '@/components/admin/ListLanguages'
@@ -142,7 +142,7 @@ const router = new Router({
           name: 'AdminForms',
           components: {
             header: AdminHeader,
-            main: ListForms,
+            main: FormsAdmin,
             sidebar: SideMenu,
           },
           meta: {

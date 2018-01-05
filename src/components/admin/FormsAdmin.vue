@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ListForms
+  .FormsAdmin
 
     admin-table(
       :itemPlural='itemPlural',
@@ -18,7 +18,7 @@
 import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
-  name: 'ListForms',
+  name: 'FormsAdmin',
   components: {
     AdminTable,
   },
@@ -41,5 +41,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .ListForms
+// .FormsAdmin
 </style>
