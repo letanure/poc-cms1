@@ -111,4 +111,8 @@ export default {
 <style lang="stylus">
 .SideMenu
   background-color #fff
+  .menu-list
+    li
+      a
+        transition background .2s linear
 </style>
