@@ -1,7 +1,7 @@
 <template lang="pug">
   nav.AdminHeader.navbar.has-shadow.is-fixed-top(role='navigation', aria-label='main navigation', )
       .navbar-brand
-        router-link.navbar-item(:to='{ name: "AdminDashboard" }', )
+        router-link.navbar-item(:to='{ name: "DashboardAdmin" }', )
           .logo
             | CMS
       .navbar-menu

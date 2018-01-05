@@ -46,7 +46,7 @@ export default {
       this.$store
         .dispatch('login')
         .then(() => {
-          this.$router.replace({ name: 'AdminDashboard' })
+          this.$router.replace({ name: 'DashboardAdmin' })
         })
     },
   },

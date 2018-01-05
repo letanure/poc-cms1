@@ -1,7 +1,8 @@
 <template lang="pug">
-  .UsersAdmin
+  .LanguagesAdmin
 
     admin-table(
+      :itemKey='itemKey',
       :itemPlural='itemPlural',
       :itemSingular='itemSingular',
       :routeAddName='routeAddName',
@@ -18,29 +19,31 @@
 import { AdminTable } from '@/components/admin/ui'
 
 export default {
-  name: 'UsersAdmin',
+  name: 'LanguagesAdmin',
   components: {
     AdminTable,
   },
   data () {
     return {
-      itemPlural: 'Users',
-      itemSingular: 'User',
-      routeAddName: 'UserAdd',
-      routeEditName: 'UserEdit',
-      storeGetter: 'usersList',
-      storeRemove: 'userRemove',
-      subtitle: 'Users description',
+      itemKey: 'id',
+      itemPlural: 'Languages',
+      itemSingular: 'Language',
+      routeAddName: 'LanguagesAdd',
+      routeEditName: 'LanguagesEdit',
+      storeGetter: 'languagesList',
+      storeRemove: 'languageRemove',
+      subtitle: 'Languages description',
       tableCols: [
         { label: 'Name', prop: 'name' },
-        { label: 'Email', prop: 'email' },
+        { label: 'Native name', prop: 'nativeName' },
+        { label: 'Code ISO_639-1', prop: 'code' },
       ],
-      title: 'Users',
+      title: 'Languages',
     }
   },
 }
 </script>
 
 <style lang="stylus">
-// .UsersAdmin
+// .LanguagesAdmin
 </style>

@@ -4,11 +4,13 @@ import * as types from '../mutation-types'
 const state = {
   pages: {
     1: {
+      id: 58,
       name: 'AAA',
       slug: 'aa',
       url: '/AAA',
     },
     2: {
+      id: 59,
       name: 'BBB',
       slug: 'bb',
       url: '/BBB',

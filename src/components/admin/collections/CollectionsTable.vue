@@ -1,7 +1,8 @@
 <template lang="pug">
-  .PagesAdmin
+  .CollectionsAdmin
 
     admin-table(
+      :itemKey='itemKey',
       :itemPlural='itemPlural',
       :itemSingular='itemSingular',
       :routeAddName='routeAddName',
@@ -18,29 +19,30 @@
 import { AdminTable } from '@/components/admin/ui'
 
 export default {
-  name: 'PagesAdmin',
+  name: 'CollectionsAdmin',
   components: {
     AdminTable,
   },
   data () {
     return {
-      itemPlural: 'Pages',
-      itemSingular: 'Page',
-      routeAddName: 'PageAdd',
-      routeEditName: 'PageEdit',
-      storeGetter: 'pagesList',
-      storeRemove: 'pageRemove',
-      subtitle: 'Pages description',
+      itemKey: 'id',
+      itemPlural: 'Collections',
+      itemSingular: 'Collection',
+      routeAddName: 'CollectionsAdd',
+      routeEditName: 'CollectionsEdit',
+      storeGetter: 'collectionsList',
+      storeRemove: 'collectiontRemove',
+      subtitle: 'Collections description',
       tableCols: [
         { label: 'Name', prop: 'name' },
-        { label: 'URL', prop: 'url' },
+        { label: 'Slug', prop: 'slug' },
       ],
-      title: 'Pages',
+      title: 'Collections',
     }
   },
 }
 </script>
 
 <style lang="stylus">
-// .PagesAdmin
+// .CollectionsAdmin
 </style>
