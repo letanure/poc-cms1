@@ -7,16 +7,19 @@ const state = {
   // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
   languages: {
     1: {
+      id: 5,
       name: 'English',
       nativeName: 'English USA',
       code: 'en',
     },
     2: {
+      id: 8,
       name: 'Portuguese',
       nativeName: 'Português',
       code: 'pt',
     },
     3: {
+      id: 9,
       name: 'German',
       nativeName: ' Deutsch',
       code: 'de',

@@ -1,20 +1,20 @@
 <template lang="pug">
   .SettingsAdmin
 
-    .columns
-      .column
-        h1.title.
-          Settings
-        h2.subtitle.
-          Settings description
-
     router-view
+
 </template>
 
 <script>
 
 export default {
   name: 'SettingsAdmin',
+  data () {
+    return {
+      subtitle: 'Settings description',
+      title: 'Settings',
+    }
+  },
 }
 </script>
 

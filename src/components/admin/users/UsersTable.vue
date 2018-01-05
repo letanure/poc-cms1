@@ -1,7 +1,8 @@
 <template lang="pug">
-  .AssetsAdmin
+  .UsersAdmin
 
     admin-table(
+      :itemKey='itemKey',
       :itemPlural='itemPlural',
       :itemSingular='itemSingular',
       :routeAddName='routeAddName',
@@ -18,29 +19,30 @@
 import { AdminTable } from '@/components/admin/ui'
 
 export default {
-  name: 'AssetsAdmin',
+  name: 'UsersAdmin',
   components: {
     AdminTable,
   },
   data () {
     return {
-      itemPlural: 'Assets',
-      itemSingular: 'Asset',
-      routeAddName: 'PagesAdd',
-      routeEditName: 'PagesEdit',
-      storeGetter: 'assetsList',
-      storeRemove: 'assetRemove',
-      subtitle: 'Assets description',
+      itemKey: 'id',
+      itemPlural: 'Users',
+      itemSingular: 'User',
+      routeAddName: 'UsersAdd',
+      routeEditName: 'UsersEdit',
+      storeGetter: 'usersList',
+      storeRemove: 'userRemove',
+      subtitle: 'Users description',
       tableCols: [
         { label: 'Name', prop: 'name' },
-        { label: 'Type', prop: 'type' },
+        { label: 'Email', prop: 'email' },
       ],
-      title: 'Assets',
+      title: 'Users',
     }
   },
 }
 </script>
 
 <style lang="stylus">
-// .AssetsAdmin
+// .UsersAdmin
 </style>

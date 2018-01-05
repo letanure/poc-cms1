@@ -1,7 +1,8 @@
 <template lang="pug">
-  .FormsAdmin
+  .ChannelsAdmin
 
     admin-table(
+      :itemKey='itemKey',
       :itemPlural='itemPlural',
       :itemSingular='itemSingular',
       :routeAddName='routeAddName',
@@ -18,28 +19,29 @@
 import { AdminTable } from '@/components/admin/ui'
 
 export default {
-  name: 'FormsAdmin',
+  name: 'ChannelsAdmin',
   components: {
     AdminTable,
   },
   data () {
     return {
-      itemPlural: 'Forms',
-      itemSingular: 'Form',
-      routeAddName: 'FormAdd',
-      routeEditName: 'FormEdit',
-      storeGetter: 'formsList',
-      storeRemove: 'formRemove',
-      subtitle: 'Forms description',
+      itemKey: 'id',
+      itemPlural: 'Channels',
+      itemSingular: 'Channel',
+      routeAddName: 'ChannelsAdd',
+      routeEditName: 'ChannelsEdit',
+      storeGetter: 'channelsList',
+      storeRemove: 'channelRemove',
+      subtitle: 'Channels description',
       tableCols: [
         { label: 'Name', prop: 'name' },
       ],
-      title: 'Forms',
+      title: 'Channels',
     }
   },
 }
 </script>
 
 <style lang="stylus">
-// .FormsAdmin
+// .ChannelsAdmin
 </style>

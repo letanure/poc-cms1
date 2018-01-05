@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Added admin section forms
 ### Changed
+- added IDs on stores
+- splited admin setions in tables/forms
 ### Deprecated
 ### Removed
 ### Fixed
