@@ -1,44 +1,43 @@
 <template lang="pug">
   .ListUsers
 
-    .columns
-      .column
-        h1.title.
-          Users
-        h2.subtitle.
-          Users description
-
-    .columns
-      .column
-        .box
-          table.table.is-striped.is-hoverable.is-fullwidth()
-            thead
-              tr
-                th.
-                  Users Header 1
-                th.
-                  Users Header 2
-                th.
-                  Actions
-            tbody
-              tr
-                td.
-                  content 1
-                td.
-                  content 2
-                td
-                  button.button.is-info.is-small.is-outlined()
-                    span.
-                      Edit
-                  .button.is-danger.is-small.is-outlined()
-                    span.
-                      Delete
+    admin-table(
+      :itemPlural='itemPlural',
+      :itemSingular='itemSingular',
+      :routeAddName='routeAddName',
+      :routeEditName='routeEditName',
+      :storeGetter='storeGetter',
+      :storeRemove='storeRemove',
+      :subtitle='subtitle',
+      :tableCols='tableCols',
+      :title='title',
+      )
 </template>
 
 <script>
+import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
   name: 'ListUsers',
+  components: {
+    AdminTable,
+  },
+  data () {
+    return {
+      itemPlural: 'Users',
+      itemSingular: 'User',
+      routeAddName: 'UserAdd',
+      routeEditName: 'UserEdit',
+      storeGetter: 'usersList',
+      storeRemove: 'userRemove',
+      subtitle: 'Users description',
+      tableCols: [
+        { label: 'Name', prop: 'name' },
+        { label: 'Email', prop: 'email' },
+      ],
+      title: 'Users',
+    }
+  },
 }
 </script>
 
