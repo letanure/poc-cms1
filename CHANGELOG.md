@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add store languages
 - Add store channels
 - Add fixed header admin
+- Add admin table for list store languages
 ### Changed
 - Updated page store with action returning a promise
 - Removed container class from basic template index
