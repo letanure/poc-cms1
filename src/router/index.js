@@ -8,7 +8,7 @@ import SignUp from '@/components/admin/login/SignUp'
 import AdminHeader from '@/components/admin/ui/AdminHeader'
 import SideMenu from '@/components/admin/ui/SideMenu'
 import DashboardAdmin from '@/components/admin/DashboardAdmin'
-import ListPages from '@/components/admin/ListPages'
+import PagesAdmin from '@/components/admin/PagesAdmin'
 import AssetsAdmin from '@/components/admin/AssetsAdmin'
 import CollectionsAdmin from '@/components/admin/CollectionsAdmin'
 import FormsAdmin from '@/components/admin/FormsAdmin'
@@ -84,7 +84,7 @@ const router = new Router({
           name: 'PagesList',
           components: {
             header: AdminHeader,
-            main: ListPages,
+            main: PagesAdmin,
             sidebar: SideMenu,
           },
           meta: {

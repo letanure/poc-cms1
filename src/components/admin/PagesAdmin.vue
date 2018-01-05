@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ListPages
+  .PagesAdmin
 
     admin-table(
       :itemPlural='itemPlural',
@@ -18,7 +18,7 @@
 import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
-  name: 'ListPages',
+  name: 'PagesAdmin',
   components: {
     AdminTable,
   },
@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .ListPages
+// .PagesAdmin
 </style>
