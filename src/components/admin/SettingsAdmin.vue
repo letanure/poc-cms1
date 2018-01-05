@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ListSettings
+  .SettingsAdmin
 
     .columns
       .column
@@ -14,10 +14,10 @@
 <script>
 
 export default {
-  name: 'ListSettings',
+  name: 'SettingsAdmin',
 }
 </script>
 
 <style lang="stylus">
-// .ListSettings
+// .SettingsAdmin
 </style>
