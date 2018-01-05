@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ListAssets
+  .AssetsAdmin
 
     admin-table(
       :itemPlural='itemPlural',
@@ -18,7 +18,7 @@
 import AdminTable from '@/components/admin/ui/AdminTable'
 
 export default {
-  name: 'ListAssets',
+  name: 'AssetsAdmin',
   components: {
     AdminTable,
   },
@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .ListAssets
+// .AssetsAdmin
 </style>
