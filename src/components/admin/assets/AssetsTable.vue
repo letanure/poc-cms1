@@ -9,9 +9,7 @@
       :routeEditName='routeEditName',
       :storeGetter='storeGetter',
       :storeRemove='storeRemove',
-      :subtitle='subtitle',
       :tableCols='tableCols',
-      :title='title',
       )
 </template>
 
@@ -28,8 +26,8 @@ export default {
       itemKey: 'id',
       itemPlural: 'Assets',
       itemSingular: 'Asset',
-      routeAddName: 'PagesAdd',
-      routeEditName: 'PagesEdit',
+      routeAddName: 'AssetsAdd',
+      routeEditName: 'AssetsEdit',
       storeGetter: 'assetsList',
       storeRemove: 'assetRemove',
       subtitle: 'Assets description',
@@ -37,7 +35,6 @@ export default {
         { label: 'Name', prop: 'name' },
         { label: 'Type', prop: 'type' },
       ],
-      title: 'Assets',
     }
   },
 }

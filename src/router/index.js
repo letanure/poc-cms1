@@ -37,6 +37,8 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  linkActiveClass: 'is-active',
+  linkExactActiveClass: 'is-active',
   routes: [
     // Sign In
     {
@@ -78,12 +80,15 @@ const router = new Router({
     {
       path: '/admin',
       component: LayoutAdmin,
+      redirect: {
+        name: 'DashboardAdmin',
+      },
       meta: {
         requiresAuth: true,
       },
       children: [
         {
-          path: '',
+          path: 'dashboard',
           name: 'DashboardAdmin',
           components: {
             header: AdminHeader,

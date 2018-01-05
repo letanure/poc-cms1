@@ -9,9 +9,7 @@
       :routeEditName='routeEditName',
       :storeGetter='storeGetter',
       :storeRemove='storeRemove',
-      :subtitle='subtitle',
       :tableCols='tableCols',
-      :title='title',
       )
 </template>
 
@@ -32,12 +30,10 @@ export default {
       routeEditName: 'UsersEdit',
       storeGetter: 'usersList',
       storeRemove: 'userRemove',
-      subtitle: 'Users description',
       tableCols: [
         { label: 'Name', prop: 'name' },
         { label: 'Email', prop: 'email' },
       ],
-      title: 'Users',
     }
   },
 }

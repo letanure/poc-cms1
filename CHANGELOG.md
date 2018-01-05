@@ -6,9 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Add active class on admin menu
+- Redirect from admin empty route (/admin/ to /admin/dashboard)
 ### Changed
 ### Deprecated
 ### Removed
+- Removed old props title and subtitle in AdminTable
 ### Fixed
 ### Security
 
