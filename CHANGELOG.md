@@ -12,6 +12,52 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 ### Security
 
+---
+## [0.7.0](../../compare/0.6.0...0.7.0) - 05/01/2018
+### Added
+- Route changes
+  - Add root admin route and check if page requires auth before navigate
+- General
+  - Add page/components transitions
+  - Created the pattern for stores, returning Promises
+  - Updated basic html templates (whitout container classes)
+- Add new UI components
+  - menuUi: renders a bulma menu
+  - iconUi: renders a bulma font awesome icon
+  - ConfirmUi: renders a bulma modal with actions to confirm / close
+- Add admin section
+  - layout components
+    - AdminHeader: logo and logout button
+    - AdminTable: receive text and store as props and renders a title and table with itens from store and edit(not working)/remove
+    - LayoutAdmin: 4 areas in router-view (footer, header, main, sidebar)
+    - SideMenu: Menu using new menuUi componnet with list of links of admin
+  - sections
+    - Login:
+      - Sign In: just a component sending data do the User Store
+      - Sign In: just a component without functionality
+    - Assets
+      - Add Store Assets
+      - Add title and table using the AdminTable component
+    - Dashboard
+      - Markup demo only
+    - Pages
+      - Add Store Pages
+      - Add title and table using the AdminTable component
+    - Collections
+      - Add Store Collections
+      - Add title and table using the AdminTable component
+    - Forms
+      - Add Store Forms
+      - Add title and table using the AdminTable component
+    - Settings
+      - empty home of settings
+    - Settings/Languages
+      - Add Store Languages
+      - Add title and table using the AdminTable component
+    - Settings/Channels
+      - Add Store Channels
+      - Add title and table using the AdminTable component
+
 
 ---
 ## [0.6.0](../../compare/0.5.0...0.6.0) - 03/01/2018
@@ -21,7 +67,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added component `GridComponents` to render dynamic components with the grid
 - Added wrapper for axios to keep http lib client isolated
 - Add PageApi
-- Load page componnets from mocked api on url change
+- Load page components from mocked api on url change
 ### Changed
 - Updated vuejs webpack template from 1.2.7 to 1.2.8
 - Removed CSS from base app component
