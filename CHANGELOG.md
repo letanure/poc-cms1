@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+
+---
+## [0.8.0](../../compare/0.7.0...0.8.0) - 05/01/2018
+### Added
 - Added admin section forms
 ### Changed
 - added IDs on stores
@@ -14,6 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Removed
 ### Fixed
 ### Security
+
 
 ---
 ## [0.7.0](../../compare/0.6.0...0.7.0) - 05/01/2018
