@@ -178,11 +178,7 @@ const router = new Router({
             {
               path: 'languages',
               name: 'AdminLanguages',
-              components: {
-                header: AdminHeader,
-                main: ListLanguages,
-                sidebar: SideMenu,
-              },
+              component: ListLanguages,
               meta: {
                 requiresAuth: true,
               },
@@ -190,11 +186,7 @@ const router = new Router({
             {
               path: 'channels',
               name: 'AdminChannels',
-              components: {
-                header: AdminHeader,
-                main: ListChannels,
-                sidebar: SideMenu,
-              },
+              component: ListChannels,
               meta: {
                 requiresAuth: true,
               },

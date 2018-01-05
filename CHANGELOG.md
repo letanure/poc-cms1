@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Removed
 ### Fixed
 - Fixed typo in router AdminDashboard name
+- Fix nested routes in admin/settings
 ### Security
 
 
