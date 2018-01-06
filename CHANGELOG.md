@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add active class on admin menu
 - Redirect from admin empty route (/admin/ to /admin/dashboard)
 - Add news component FormField
+- Add store pages methods to add and remove
 ### Changed
 - Changed the layoutAdmin grid to prevent jump of content on transition
 ### Deprecated
