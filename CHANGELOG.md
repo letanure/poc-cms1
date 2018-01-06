@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - Add active class on admin menu
 - Redirect from admin empty route (/admin/ to /admin/dashboard)
+- Add vuelidate lib to validate forms
 - Add news component FormField
 - Add store pages methods to add and remove
 ### Changed
