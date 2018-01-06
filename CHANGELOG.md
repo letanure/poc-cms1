@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add vuelidate lib to validate forms
 - Add news component FormField
 - Add store pages methods to add and remove
+- Add ButtonUi component
 ### Changed
 - Changed the layoutAdmin grid to prevent jump of content on transition
 ### Deprecated
