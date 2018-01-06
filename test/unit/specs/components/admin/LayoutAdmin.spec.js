@@ -123,10 +123,10 @@ describe(`${Component.name}.vue`, () => {
       }
     })
 
-    it(`when sidebar = false, main has 12 columns`, () => {
+    it(`when sidebar = false, main has offset-2`, () => {
       propsMock.sidebar = false
       const cmp = createCmp(propsMock)
-      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-12').length
+      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-10.is-offset-2').length
       expect(count).toBe(1)
     })
 

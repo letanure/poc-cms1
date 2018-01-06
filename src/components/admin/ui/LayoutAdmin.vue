@@ -11,7 +11,7 @@
             transition(name='slideLeft', appear)
               router-view.LayoutAdmin__sidebar(name='sidebar', )
         template(v-if='main')
-          .LayoutAdmin__column_main.column(:class='{"is-12": !sidebar, "is-10": sidebar, }')
+          .LayoutAdmin__column_main.column(:class='{"is-10 is-offset-2": !sidebar, "is-10": sidebar, }')
             transition(name='fade', mode='out-in', appear)
               router-view.LayoutAdmin__main(name='main', )
 

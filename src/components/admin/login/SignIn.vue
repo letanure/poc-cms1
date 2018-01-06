@@ -2,11 +2,11 @@
   section.SignIn.section
 
     .columns
-      .column
+      .column.is-4.is-offset-3
         h1.title.has-text-centered Sign-in
 
     .columns
-      .column.is-4.is-offset-4
+      .column.is-4.is-offset-3
         .card()
           .card-header.is-centered
             h2.card-header-title.is-centered Sign in to Your Account
