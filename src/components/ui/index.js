@@ -5,6 +5,7 @@ import FormField from '@/components/ui/form/FormField'
 import IconUi from '@/components/ui/IconUi'
 import MenuUi from '@/components/ui/MenuUi'
 import MessageUi from '@/components/ui/MessageUi'
+import CollapseUi from '@/components/ui/CollapseUi'
 import TabsUi from '@/components/ui/TabsUi'
 
 export {
@@ -15,5 +16,6 @@ export {
   IconUi,
   MenuUi,
   MessageUi,
+  CollapseUi,
   TabsUi
 }
