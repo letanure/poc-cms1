@@ -8,26 +8,26 @@ describe(`${Component.name}.vue`, () => {
 
   describe('Properties', () => {
     describe('footer', () => {
-      propName = 'footer'
+      propName = 'hasFooter'
       beforeEach(() => {
         propsMock = {
-          footer: true,
+          hasFooter: true,
         }
       })
 
       it(`has a ${propName} property`, () => {
         const cmp = createCmp(propsMock)
-        expect(cmp.props().footer).toBe(propsMock.footer)
+        expect(cmp.props().hasFooter).toBe(propsMock.hasFooter)
       })
 
-      it(`renders the footer view when ${propName} = true`, () => {
+      it(`renders the hasFooter view when ${propName} = true`, () => {
         const cmp = createCmp(propsMock)
         const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__footer').length
         expect(count).toBe(1)
       })
 
       it(`renders the footer view when ${propName} = true`, () => {
-        propsMock.footer = false
+        propsMock.hasFooter = false
         const cmp = createCmp(propsMock)
         const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__footer').length
         expect(count).toBe(0)
@@ -35,16 +35,16 @@ describe(`${Component.name}.vue`, () => {
     })
 
     describe('header', () => {
-      propName = 'header'
+      propName = 'hasHeader'
       beforeEach(() => {
         propsMock = {
-          header: true,
+          hasHeader: true,
         }
       })
 
       it(`has a ${propName} property`, () => {
         const cmp = createCmp(propsMock)
-        expect(cmp.props().header).toBe(propsMock.header)
+        expect(cmp.props().hasHeader).toBe(propsMock.hasHeader)
       })
 
       it(`renders the header view when ${propName} = true`, () => {
@@ -54,7 +54,7 @@ describe(`${Component.name}.vue`, () => {
       })
 
       it(`renders the header view when ${propName} = true`, () => {
-        propsMock.header = false
+        propsMock.hasHeader = false
         const cmp = createCmp(propsMock)
         const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__header').length
         expect(count).toBe(0)
@@ -62,16 +62,16 @@ describe(`${Component.name}.vue`, () => {
     })
 
     describe('main', () => {
-      propName = 'main'
+      propName = 'hasMain'
       beforeEach(() => {
         propsMock = {
-          main: true,
+          hasMain: true,
         }
       })
 
       it(`has a ${propName} property`, () => {
         const cmp = createCmp(propsMock)
-        expect(cmp.props().main).toBe(propsMock.main)
+        expect(cmp.props().hasMain).toBe(propsMock.hasMain)
       })
 
       it(`renders the main view when ${propName} = true`, () => {
@@ -81,36 +81,63 @@ describe(`${Component.name}.vue`, () => {
       })
 
       it(`renders the main view when ${propName} = true`, () => {
-        propsMock.main = false
+        propsMock.hasMain = false
         const cmp = createCmp(propsMock)
         const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__main').length
         expect(count).toBe(0)
       })
     })
 
-    describe('sidebar', () => {
-      propName = 'sidebar'
+    describe('hasSidebarLeft', () => {
+      propName = 'hasSidebarLeft'
       beforeEach(() => {
         propsMock = {
-          sidebar: true,
+          hasSidebarLeft: true,
         }
       })
 
       it(`has a ${propName} property`, () => {
         const cmp = createCmp(propsMock)
-        expect(cmp.props().sidebar).toBe(propsMock.sidebar)
+        expect(cmp.props().hasSidebarLeft).toBe(propsMock.hasSidebarLeft)
       })
 
       it(`renders the sidebar view when ${propName} = true`, () => {
         const cmp = createCmp(propsMock)
-        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebar').length
+        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebarLeft').length
         expect(count).toBe(1)
       })
 
       it(`renders the sidebar view when ${propName} = true`, () => {
-        propsMock.sidebar = false
+        propsMock.hasSidebarLeft = false
         const cmp = createCmp(propsMock)
-        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebar').length
+        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebarLeft').length
+        expect(count).toBe(0)
+      })
+    })
+
+    describe('hasSidebarRight', () => {
+      propName = 'hasSidebarRight'
+      beforeEach(() => {
+        propsMock = {
+          hasSidebarRight: true,
+        }
+      })
+
+      it(`has a ${propName} property`, () => {
+        const cmp = createCmp(propsMock)
+        expect(cmp.props().hasSidebarRight).toBe(propsMock.hasSidebarRight)
+      })
+
+      it(`renders the sidebar view when ${propName} = true`, () => {
+        const cmp = createCmp(propsMock)
+        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebarRight').length
+        expect(count).toBe(1)
+      })
+
+      it(`renders the sidebar view when ${propName} = true`, () => {
+        propsMock.hasSidebarRight = false
+        const cmp = createCmp(propsMock)
+        const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__sidebarRight').length
         expect(count).toBe(0)
       })
     })
@@ -118,23 +145,23 @@ describe(`${Component.name}.vue`, () => {
 
   describe('Template', () => {
     beforeEach(() => {
-      propsMock = {
-        sidebar: true,
-      }
+      propsMock = {}
     })
 
-    it(`when sidebar = false, main has offset-2`, () => {
-      propsMock.sidebar = false
+    it(`when hasSidebarLeft & hasSidebarRight main has 8 columns`, () => {
+      propsMock.hasSidebarLeft = true
+      propsMock.hasSidebarRight = true
       const cmp = createCmp(propsMock)
-      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-10.is-offset-2').length
+      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-8').length
       expect(count).toBe(1)
     })
 
-    it(`when sidebar = true, main has 10 columns`, () => {
-      propsMock.sidebar = true
+    it(`when hasSidebarLeft & !hasSidebarRight main has 10 columns`, () => {
+      propsMock.hasSidebarLeft = true
+      propsMock.hasSidebarRight = false
       const cmp = createCmp(propsMock)
-      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-12').length
-      expect(count).toBe(0)
+      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-10').length
+      expect(count).toBe(1)
     })
   }) // Template
 })

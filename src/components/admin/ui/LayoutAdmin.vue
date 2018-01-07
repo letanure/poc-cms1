@@ -1,22 +1,28 @@
 <template lang="pug">
   div.LayoutAdmin
-    template(v-if='header')
-      transition(name='slideUp', appear)
+    template(v-if='hasHeader')
+      transition(name='slideUp', mode='out-in', appear)
         router-view.LayoutAdmin__header(name='header', )
 
-    .section()
-      .columns()
-        template(v-if='sidebar', appear)
-          .LayoutAdmin__column_sidebar.column.is-2()
-            transition(name='slideLeft', appear)
-              router-view.LayoutAdmin__sidebar(name='sidebar', )
-        template(v-if='main')
-          .LayoutAdmin__column_main.column(:class='{"is-10 is-offset-2": !sidebar, "is-10": sidebar, }')
-            transition(name='fade', mode='out-in', appear)
-              router-view.LayoutAdmin__main(name='main', )
+    .columns()
+      template(v-if='hasSidebarLeft', appear)
+        aside.LayoutAdmin__column_sidebarLeft.column.is-2()
+          transition(name='slideLeft', mode='out-in', appear)
+            router-view.LayoutAdmin__sidebarLeft(name='sidebarLeft', )
 
-    template(v-if='footer')
-      router-view.LayoutAdmin__footer(name='footer', )
+      template(v-if='hasMain')
+        main.LayoutAdmin__column_main.column(:class='classesMain')
+          transition(name='fade', mode='out-in', appear)
+            router-view.section.LayoutAdmin__main(name='main', )
+
+      template(v-if='hasSidebarRight', appear)
+        aside.LayoutAdmin__column_sidebarRight.column.is-2()
+          transition(name='slideRight', mode='out-in', appear)
+            router-view.LayoutAdmin__sidebarRight(name='sidebarRight', )
+
+    template(v-if='hasFooter')
+      transition(name='slideDown', mode='in-out', appear)
+        router-view.LayoutAdmin__footer(name='footer', )
 </template>
 
 <script>
@@ -24,25 +30,42 @@
 export default {
   name: 'LayoutAdmin',
   props: {
-    footer: {
+    hasFooter: {
       default: true,
       type: Boolean,
       required: false,
     },
-    header: {
+    hasHeader: {
       default: true,
       type: Boolean,
       required: false,
     },
-    main: {
+    hasMain: {
       default: true,
       type: Boolean,
       required: false,
     },
-    sidebar: {
+    hasSidebarLeft: {
       default: true,
       type: Boolean,
       required: false,
+    },
+    hasSidebarRight: {
+      default: true,
+      type: Boolean,
+      required: false,
+    },
+  },
+  computed: {
+    classesMain () {
+      let classMain = ''
+      if (this.hasSidebarLeft && this.hasSidebarRight) {
+        classMain = 'is-8'
+      }
+      if (this.hasSidebarLeft && !this.hasSidebarRight) {
+        classMain = 'is-10'
+      }
+      return [classMain]
     },
   },
 }
@@ -55,10 +78,21 @@ export default {
 .slideUp-enter, .slideUp-leave-to
   transform translate(0, -60px)
 
+.slideDown-enter-active, .slideDown-leave-active
+  transition transform .3s linear
+.slideDown-enter, .slideDown-leave-to
+  transform translate(0, 60px)
+
 .slideLeft-enter-active, .slideLeft-leave-active
   transition transform .3s linear
 .slideLeft-enter, .slideLeft-leave-to
   transform translate(-100%, 0)
+
+.slideRight-enter-active, .slideRight-leave-active
+  transition transform .3s linear
+  transition-delay .3s
+.slideRight-enter, .slideRight-leave-to
+  transform translate(100%, 0)
 
 .fade-enter-active, .fade-leave-active
   transition opacity .1s linear
