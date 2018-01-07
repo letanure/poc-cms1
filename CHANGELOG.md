@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add store pages methods to add and remove
 - Add ButtonUi component
 - Add CollapseUi component
+- Add Color and size props to iconUi
 ### Changed
 - Changed the layoutAdmin grid to prevent jump of content on transition
 ### Deprecated
