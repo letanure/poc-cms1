@@ -1,18 +1,18 @@
 <template lang="pug">
   .ButtonUI.button(
-    :is="tag",
-    :to="to",
-    :href='href',
-    :class='classes',
-    :disabled='disabled',
-  )
-    template(v-if='hasIcon && iconPosition ==="left" ')
-      icon-ui(:type='iconType')
-    span.
-      {{ text }}
-    slot
-    template(v-if='hasIcon && iconPosition ==="right" ')
-      icon-ui(:type='iconType')
+      :class='classes',
+      @click='handleClick()'
+      :disabled='disabled',
+      :is="tag",
+      :to="to",
+    )
+      template(v-if='hasIcon && iconPosition ==="left" ')
+        icon-ui(:type='iconType')
+      span.
+        {{ text }}
+      slot
+      template(v-if='hasIcon && iconPosition ==="right" ')
+        icon-ui(:type='iconType')
 </template>
 
 <script>
@@ -56,7 +56,7 @@ export default {
     href: {
       default: false,
       type: [Boolean, String],
-      required: true,
+      required: false,
     },
 
     iconPosition: {
@@ -174,6 +174,11 @@ export default {
 
     hasIcon () {
       return this.iconType !== ''
+    },
+  },
+  methods: {
+    handleClick () {
+      this.$emit('click')
     },
   },
 }
