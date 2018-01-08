@@ -1,18 +1,79 @@
 <template lang="pug">
-  nav.ModalUi.modal
-    .modal-background
-    .modal-content
-      p.image.is-4by3
-        img(src='https://bulma.io/images/placeholders/1280x960.png', alt='')
-    button.modal-close.is-large(aria-label='close')
+  nav.TitleUi
+    .title(:is='titleTag', :class='titleClasses', ).
+      {{ title }}
+    .subtitle(:is='subtitleTag', :class='subtitleClasses').
+      {{ subtitle }}
+
 </template>
 
 <script>
+import { inRange } from 'lodash'
+
 export default {
-  name: 'ModalUi',
+  name: 'TitleUi',
+  props: {
+    title: {
+      default: 'Title',
+      type: String,
+      required: false,
+    },
+
+    titleTag: {
+      default: 'h1',
+      type: String,
+      required: false,
+    },
+
+    titleSize: {
+      default: null,
+      type: String,
+      required: false,
+      validator (num) {
+        return inRange(num, 1, 6)
+      },
+    },
+
+    subtitle: {
+      default: 'Subtitle',
+      type: String,
+      required: false,
+    },
+
+    subtitleTag: {
+      default: 'h2',
+      type: String,
+      required: false,
+    },
+
+    subtitleSize: {
+      default: null,
+      type: Number,
+      required: false,
+      validator (num) {
+        return inRange(num, 1, 6)
+      },
+    },
+
+    spaced: {
+      default: false,
+      type: Boolean,
+      required: false,
+    },
+  },
+  methods: {
+    titleClasses () {
+      const spacedClass = this.spaced ? 'is-spaced' : ''
+      return [`is-${this.titleSize}`, spacedClass]
+    },
+
+    subtitleClasses () {
+      return [`is-${this.subtitleSize}`]
+    },
+  },
 }
 </script>
 
 <style lang="stylus">
-// .ModalUi
+// .TitleUi
 </style>
