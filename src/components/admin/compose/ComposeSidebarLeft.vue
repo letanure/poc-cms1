@@ -33,7 +33,6 @@ export default {
   methods: {
     clickComponent (item) {
       this.$store.dispatch('addComponent', item.value).then(() => {
-        console.log('then addComponent')
       })
     },
 
