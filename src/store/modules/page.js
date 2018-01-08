@@ -22,10 +22,21 @@ const actions = {
     })
   },
 
+  loadPageById ({ commit }, id) {
+    return new Promise((resolve) => {
+      PagesApi
+        .getPageContentById(id)
+        .then((content) => {
+          commit(types.PAGE_UPDATE_CONTENT, { content })
+          resolve()
+        })
+    })
+  },
+
   updateUrl ({ commit }, url) {
     return new Promise((resolve) => {
       PagesApi
-        .getPageContent(url)
+        .getPageContentByUrl(url)
         .then((content) => {
           commit(types.PAGE_UPDATE_CONTENT, { content })
           commit(types.PAGE_UPDATE_URL, { url })
