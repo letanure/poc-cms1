@@ -1,12 +1,21 @@
 <template lang="pug">
   nav.ComposeMain
-    h1 ComposeMain
+    grid-components(:componentsList='pageContent', )
 
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import GridComponents from '@/components/GridComponents'
+
 export default {
   name: 'ComposeMain',
+  components: {
+    GridComponents,
+  },
+  computed: mapGetters([
+    'pageContent',
+  ]),
 }
 </script>
 
