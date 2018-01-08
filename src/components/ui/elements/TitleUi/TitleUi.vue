@@ -14,7 +14,7 @@ export default {
   name: 'TitleUi',
   props: {
     title: {
-      default: 'Title',
+      default: '',
       type: String,
       required: false,
     },
