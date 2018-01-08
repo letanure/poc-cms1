@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style lang="stylus">
-// .ComposeMain
+.ComposeMain
+  height calc(100vh - 104px)
+  overflow scroll
 </style>

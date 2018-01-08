@@ -32,7 +32,9 @@ export default {
 
   methods: {
     clickComponent (item) {
-      console.log('clickComponent', item)
+      this.$store.dispatch('addComponent', item.value).then(() => {
+        console.log('then addComponent')
+      })
     },
 
     setMenuBlankComponents () {
@@ -52,6 +54,7 @@ export default {
               type: 'button',
               name: ('PagesList' + component.icon),
             },
+            value: component.name,
           }
           menuGroup.items.push(componentItem)
         })
@@ -73,6 +76,7 @@ export default {
 .ComposeSidebarLeft
   background-color #373737
   height calc(100vh - 104px)
+  overflow scroll
 
   .section.is-small
     padding 1.5rem
