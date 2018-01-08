@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add CollapseUi component
 - Add Color and size props to iconUi
 ### Changed
+- Updated vue from 2.5.2 to 2.5.13
 - Changed the layoutAdmin grid to prevent jump of content on transition
 ### Deprecated
 ### Removed
