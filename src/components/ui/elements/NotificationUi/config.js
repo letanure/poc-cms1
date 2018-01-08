@@ -3,6 +3,7 @@ const config = {
   label: 'Notification',
   icon: 'angle-right',
   group: 'elements',
+  listable: false,
 }
 
 export default config

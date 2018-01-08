@@ -3,6 +3,7 @@ const config = {
   label: 'Pagination',
   icon: 'angle-right',
   group: 'components',
+  listable: false,
 }
 
 export default config

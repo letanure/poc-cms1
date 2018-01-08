@@ -3,6 +3,7 @@ const config = {
   label: 'Icon',
   icon: 'heart',
   group: 'elements',
+  listable: false,
 }
 
 export default config

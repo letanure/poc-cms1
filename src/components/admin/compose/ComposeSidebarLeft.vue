@@ -43,7 +43,8 @@ export default {
       }
       Object
         .keys(this.componentsList)
-        .filter((componentName) => this.componentsList[componentName].group === 'components')
+        // .filter((componentName) => this.componentsList[componentName].group === 'components')
+        .filter((componentName) => this.componentsList[componentName].listable)
         .forEach((componentKey) => {
           const component = this.componentsList[componentKey]
           const componentItem = {

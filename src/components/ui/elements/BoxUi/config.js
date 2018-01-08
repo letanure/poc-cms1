@@ -3,6 +3,7 @@ const config = {
   label: 'Box',
   icon: 'angle-right',
   group: 'elements',
+  listable: true,
 }
 
 export default config

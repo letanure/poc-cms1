@@ -3,6 +3,7 @@ const config = {
   label: 'Tag',
   icon: 'angle-right',
   group: 'elements',
+  listable: false,
 }
 
 export default config

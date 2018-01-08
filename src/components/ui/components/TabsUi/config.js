@@ -3,6 +3,7 @@ const config = {
   label: 'Tabs',
   icon: 'exclamation',
   group: 'components',
+  listable: false,
 }
 
 export default config
