@@ -1,6 +1,7 @@
 <template lang="pug">
   nav.ComposeSidebarRight
-    menu-ui(:groups='menuGroups')
+    .section.is-small
+      menu-ui(:groups='menuGroups')
 
     //- .menu.animated.slideInLeft
 </template>
@@ -48,6 +49,11 @@ export default {
 <style lang="stylus">
 .ComposeSidebarRight
   background-color #373737
+  height calc(100vh - 104px)
+
+  .section.is-small
+    padding 1.5rem
+
   .menu-list
     li
       a
