@@ -1,21 +1,45 @@
 <template lang="pug">
   nav.ComposeMain
-    grid-components(:componentsList='pageContent', )
+    template(v-if='pageLoading')
+      loading-ui()
+    template(v-else)
+      grid-components(:componentsList='pageContent', )
 
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { LoadingUi } from '@/components/ui'
 import GridComponents from '@/components/GridComponents'
 
 export default {
   name: 'ComposeMain',
   components: {
     GridComponents,
+    LoadingUi,
+  },
+  props: {
+    slug: {
+      default: null,
+      type: [String, Number],
+      required: false,
+    },
+  },
+  data () {
+    return {
+      pageLoading: true,
+    }
   },
   computed: mapGetters([
     'pageContent',
   ]),
+  beforeMount () {
+    this.$store
+      .dispatch('loadPageById', this.slug)
+      .then(() => {
+        this.pageLoading = false
+      })
+  },
 }
 </script>
 

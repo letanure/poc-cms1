@@ -112,7 +112,13 @@ const router = new Router({
             sidebarRight: ComposeSidebarRight,
             footer: ComposeFooter,
           },
-          // props: true,
+          props: {
+            header: false,
+            main: true,
+            sidebarLeft: false,
+            sidebarRight: false,
+            footer: false,
+          },
           meta: {
             requiresAuth: true,
           },
@@ -126,7 +132,13 @@ const router = new Router({
             sidebarRight: ComposeSidebarRight,
             footer: ComposeFooter,
           },
-          props: true,
+          props: {
+            header: false,
+            main: true,
+            sidebarLeft: false,
+            sidebarRight: false,
+            footer: false,
+          },
           meta: {
             requiresAuth: true,
           },
