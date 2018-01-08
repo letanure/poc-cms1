@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import IconUi from '@/components/ui/IconUi'
+import IconUi from '@/components/ui/IconUi/IconUi'
 
 export default {
   name: 'ButtonUI',

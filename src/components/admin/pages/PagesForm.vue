@@ -25,7 +25,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { minLength, required } from 'vuelidate/lib/validators'
-import FormField from '@/components/ui/form/FormField'
+import { FormField } from '@/components/ui'
 
 export default {
   name: 'PagesForm',
