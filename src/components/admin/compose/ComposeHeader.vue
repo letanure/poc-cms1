@@ -15,6 +15,9 @@
 <script>
 export default {
   name: 'ComposeHeader',
+  beforeMount () {
+    document.documentElement.classList.add('has-navbar-fixed-top')
+  },
 }
 </script>
 

@@ -1,17 +1,17 @@
 <template lang="pug">
-.MessageUi.message(:class='classes', v-if='isVisible')
+  .MessageUi.message(:class='classes', v-if='isVisible')
 
-  .message-header(v-if='header || hasSlotHeader', )
-    slot(name='header', v-if='hasSlotHeader', )
-    p(v-if='header', )
-      | {{ header }}
+    .message-header(v-if='header || hasSlotHeader', )
+      slot(name='header', v-if='hasSlotHeader', )
+      p(v-if='header', )
+        | {{ header }}
 
-    button.delete(aria-label='delete', @click='close()', :class='sizeButton', v-if='hasClose', )
+      button.delete(aria-label='delete', @click='close()', :class='sizeButton', v-if='hasClose', )
 
-  .message-body(v-if='body || hasSlotBody', )
-    slot(name='body', v-if='hasSlotBody', )
-    p(v-if='body', )
-      | {{ body }}
+    .message-body(v-if='body || hasSlotBody', )
+      slot(name='body', v-if='hasSlotBody', )
+      p(v-if='body', )
+        | {{ body }}
 </template>
 
 <script>

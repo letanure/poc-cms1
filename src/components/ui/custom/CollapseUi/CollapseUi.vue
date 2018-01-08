@@ -17,7 +17,7 @@
 
 <script>
 
-import IconUi from '@/components/ui/IconUi/IconUi'
+import IconUi from '@/components/ui/elements/IconUi/IconUi'
 
 export default {
   name: 'CollapseUi',

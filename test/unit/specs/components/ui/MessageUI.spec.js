@@ -1,5 +1,5 @@
 import { mount } from 'vue-test-utils'
-import Component from '@/components/ui/MessageUi/MessageUi'
+import Component from '@/components/ui/components/MessageUi/MessageUi'
 
 describe(`${Component.name}.vue`, () => {
   describe('Props', () => {
