@@ -10,6 +10,7 @@ import DropdownUi from '@/components/ui/components/DropdownUi/config'
 import FormField from '@/components/ui/form/FormField/config'
 import IconUi from '@/components/ui/elements/IconUi/config'
 import ImageUi from '@/components/ui/elements/ImageUi/config'
+import LoadingUi from '@/components/ui/custom/LoadingUi/config'
 import MenuUi from '@/components/ui/components/MenuUi/config'
 import MessageUi from '@/components/ui/components/MessageUi/config'
 import ModalUi from '@/components/ui/components/ModalUi/config'
@@ -35,6 +36,7 @@ export {
   FormField,
   IconUi,
   ImageUi,
+  LoadingUi,
   MenuUi,
   MessageUi,
   ModalUi,
