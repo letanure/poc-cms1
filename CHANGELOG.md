@@ -6,51 +6,65 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
-- Add active class on admin menu
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+
+---
+## [0.9.0](../../compare/0.8.0...0.9.0) - 09/01/2018
+### Added
+- Add new mock components (html only)
+  - CardUi
+  - DropdownUi
+  - ModalUi
+  - NavbarUi
+  - PaginationUi
+  - PanelUi
+  - BoxUi
+  - ContentUi
+  - DeleteUi
+  - ImageUi
+  - NotificationUi
+  - ProgressUi
+  - TableUi
+  - TitleUi
+  - FormField
+- Add new components
+  - ButtonUi
+  - CollapseUi
+  - FormField
+  - LoadingUi
+  - TagUi
+  - Add layout componnets for compose
+    - ComposeFooter
+    - ComposeHeader
+    - ComposeMain:
+      - with gridcomponents
+      - highlight row and colum
+    - ComposeSidebarLeft
+      - with components list
+    - ComposeSidebarRight
+- Updated old components
+  - iconUi: color and size props
+- Add new stores and actions/mutations
+  - pages:
+    - methods to add and remove
+- Add trasitions in admin
+- Add active state in admin menu
 - Redirect from admin empty route (/admin/ to /admin/dashboard)
-- Add vuelidate lib to validate forms
-- Add news component FormField
-- Add store pages methods to add and remove
-- Add ButtonUi component
-- Add CollapseUi component
-- Add Color and size props to iconUi
-- Add pages by ID on mock api
-- Add getPageBy ID on pages API
-- Add layout componnets for compose
-  - ComposeFooter
-  - ComposeHeader
-  - ComposeMain
-  - ComposeSidebarLeft
-  - ComposeSidebarRight
-- Add gridcomponents in ComposeMain
-- Add highlight row and colum in ComposeMain
-- Load components list in ComposeSidebarLeft
-- Add barrels for components, split components per type in folders
-- Ad page form
-- Add demo component
+- New dependencies
+  - Add vuelidate lib to validate forms
+- Updated API pages
+  - Add getPageBy ID on pages API
+- Updated mock API
+  - pages by ID on mock api
+- Add export barrels for each component type
+- Add admin page form new/edit
 - Add extra actions to pgestable admin
-- Add vue transitions in layoutadmin
-- Add mock component CardUi
-- Add mock component DropdownUi
-- Add mock component ModalUi
-- Add mock component NavbarUi
-- Add mock component PaginationUi
-- Add mock component PanelUi
-- Add mock component BoxUi
-- Add mock component ContentUi
-- Add mock component DeleteUi
-- Add mock component ImageUi
-- Add mock component NotificationUi
-- Add mock component ProgressUi
-- Add mock component TableUi
-- Add mock component TitleUi
-- Add mock component FormField
-- Add component TagUi
-- Add component ButtonUi
-- Add component CollapseUi
-- Add component LoadingUi
-- Add barrel for components ui configs
-- Add components configs
+- Add in all UI componets the initial component config
 - Add empty link option to MenuUi
 - Add routers for compose page
 - Add store components
@@ -65,11 +79,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Update login grid
 - Use component buttonUI in admintable
 - fix class name in breadcrumbUi
-### Deprecated
 ### Removed
 - Removed old props title and subtitle in AdminTable
-### Fixed
-### Security
 
 
 ---
