@@ -4,16 +4,15 @@
       label.radio
         input(
           type='radio',
-          :name='option.name',
           :checked='option.checked',
           :disabled='option.disabled',
           )
         span
-          | {{ option.label }}
+          |  {{ option.label }}
 </template>
 
 <script>
-
+import { isEqual } from 'lodash'
 
 export default {
   name: 'RadioUi',
@@ -23,14 +22,14 @@ export default {
       type: Array,
       required: true,
       validator (list) {
-        const defaultKeys = ['label', 'name']
+        const defaultKeys = ['label']
         const isValid = list.every((item) => {
           return isEqual(defaultKeys.sort(), Object.keys(item).sort())
         })
         return isValid
       },
     },
-  }
+  },
 }
 </script>
 

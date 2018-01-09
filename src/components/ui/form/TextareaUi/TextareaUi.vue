@@ -11,7 +11,6 @@
 
 <script>
 
-
 export default {
   name: 'TextareaUi',
   props: {
@@ -77,6 +76,7 @@ export default {
       required: false,
       validator (option) {
         const options = [
+          'default',
           'hovered',
           'focused',
           'loading',
@@ -87,7 +87,6 @@ export default {
   },
   computed: {
     classes () {
-      const staticClass = this.static ? 'is-static' : ''
       const classes = [
         `is-${this.color}`,
         `is-${this.size}`,

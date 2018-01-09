@@ -3,7 +3,7 @@
     label.checkbox(:disabled='disabled', )
       input(type='checkbox', :disabled='disabled', )
       span(v-if='label', )
-        | {{ label }}
+        |  {{ label }}
 </template>
 
 <script>

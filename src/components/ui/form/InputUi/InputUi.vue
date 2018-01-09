@@ -10,8 +10,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'InputUi',
   props: {
@@ -74,6 +72,7 @@ export default {
       required: false,
       validator (option) {
         const options = [
+          'default',
           'hovered',
           'focused',
           'loading',
@@ -82,7 +81,7 @@ export default {
       },
     },
 
-    style: {
+    layout: {
       default: 'default',
       type: String,
       required: false,
@@ -120,7 +119,7 @@ export default {
         `is-${this.color}`,
         `is-${this.size}`,
         `is-${this.state}`,
-        `is-${this.style}`,
+        `is-${this.layout}`,
         staticClass,
       ]
       return [...new Set(classes)]

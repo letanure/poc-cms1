@@ -8,7 +8,7 @@
 </template>
 
 <script>
-
+import { isEqual } from 'lodash'
 
 export default {
   name: 'SelectUi',
@@ -49,7 +49,7 @@ export default {
       required: false,
     },
 
-    style: {
+    layout: {
       default: 'default',
       type: String,
       required: false,
@@ -83,6 +83,7 @@ export default {
       required: false,
       validator (option) {
         const options = [
+          'default',
           'hovered',
           'focused',
           'loading',
@@ -96,7 +97,7 @@ export default {
       const multipleClass = this.multiple ? 'is-multiple' : ''
       const classes = [
         `is-${this.color}`,
-        `is-${this.style}`,
+        `is-${this.layout}`,
         `is-${this.size}`,
         `is-${this.state}`,
         multipleClass,
