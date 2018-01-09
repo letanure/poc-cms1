@@ -1,5 +1,5 @@
 const config = {
-  name: 'FormField',
+  name: 'FormFieldold',
   label: 'Form Field',
   icon: 'wpforms',
   group: 'form',

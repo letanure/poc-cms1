@@ -1,5 +1,5 @@
 <template lang="pug">
-  .FormField.field
+  .FormFieldold.field
 
     label.label
       | {{ label }}
@@ -51,7 +51,7 @@ const errorMessages = {
 }
 
 export default {
-  name: 'FormField',
+  name: 'FormFieldold',
   props: {
     value: {
       default: '',
@@ -146,5 +146,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .FormField
+// .FormFieldold
 </style>

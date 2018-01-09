@@ -25,12 +25,12 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { minLength, required } from 'vuelidate/lib/validators'
-import { FormField } from '@/components/ui'
+import { FormFieldold } from '@/components/ui'
 
 export default {
   name: 'PagesForm',
   components: {
-    FormField,
+    FormFieldold,
   },
   mixins: [validationMixin],
   props: {

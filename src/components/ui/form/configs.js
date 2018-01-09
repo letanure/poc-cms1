@@ -1,5 +1,5 @@
-import FormField from '@/components/ui/form/FormField/config'
+import FormFieldold from '@/components/ui/form/FormFieldold/config'
 
 export {
-  FormField,
+  FormFieldold,
 }
