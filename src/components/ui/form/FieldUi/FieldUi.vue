@@ -35,13 +35,6 @@ export default {
       default: () => [],
       type: Array,
       required: true,
-      validator (value) {
-        const defaultKeys = ['type']
-        const isValid = value.every((item) => {
-          return isEqual(defaultKeys.sort(), Object.keys(item).sort())
-        })
-        return isValid
-      },
     },
 
     addons: {
