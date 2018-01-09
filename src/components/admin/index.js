@@ -9,6 +9,11 @@ import ChannelsTable from '@/components/admin/channels/ChannelsTable'
 import CollectionsAdmin from '@/components/admin/collections/CollectionsAdmin'
 import CollectionsForm from '@/components/admin/collections/CollectionsForm'
 import CollectionsTable from '@/components/admin/collections/CollectionsTable'
+import ComposeFooter from '@/components/admin/compose/ComposeFooter'
+import ComposeHeader from '@/components/admin/compose/ComposeHeader'
+import ComposeMain from '@/components/admin/compose/ComposeMain'
+import ComposeSidebarLeft from '@/components/admin/compose/ComposeSidebarLeft'
+import ComposeSidebarRight from '@/components/admin/compose/ComposeSidebarRight'
 import DashboardAdmin from '@/components/admin/DashboardAdmin'
 import FormsAdmin from '@/components/admin/forms/FormsAdmin'
 import FormsForm from '@/components/admin/forms/FormsForm'
@@ -40,6 +45,11 @@ export {
   CollectionsAdmin,
   CollectionsForm,
   CollectionsTable,
+  ComposeFooter,
+  ComposeHeader,
+  ComposeMain,
+  ComposeSidebarLeft,
+  ComposeSidebarRight,
   DashboardAdmin,
   FormsAdmin,
   FormsForm,

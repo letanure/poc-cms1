@@ -14,14 +14,11 @@
 
 <script>
 import { isEqual } from 'lodash'
-import { MessageUi, TabsUi } from '@/components/ui'
+import * as components from '@/components/ui'
 
 export default {
   name: 'GridComponents',
-  components: {
-    MessageUi,
-    TabsUi,
-  },
+  components: components,
   props: {
     componentsList: {
       default: () => [],

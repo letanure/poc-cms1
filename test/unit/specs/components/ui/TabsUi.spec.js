@@ -1,5 +1,5 @@
 import { mount } from 'vue-test-utils'
-import Component from '@/components/ui/TabsUi'
+import Component from '@/components/ui/components/TabsUi/TabsUi'
 
 describe(`${Component.name}.vue`, () => {
   describe('Properties', () => {

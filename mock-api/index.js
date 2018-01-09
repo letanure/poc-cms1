@@ -79,6 +79,17 @@ function generatePages (quantitypages) {
       }
     )
   }
+  for (var i = 0; i < 100; i++) {
+    const randomQuantityComponents = _.random(0, 10)
+    pages.push(
+      {
+        id: i,
+        data: {
+          content: generateContent(randomQuantityComponents),
+        },
+      }
+    )
+  }
   return pages
 }
 

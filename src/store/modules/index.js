@@ -1,4 +1,5 @@
 import Assets from '@/store/modules/assets'
+import Components from '@/store/modules/components'
 import Channels from '@/store/modules/channels'
 import Collections from '@/store/modules/collections'
 import Forms from '@/store/modules/forms'
@@ -10,6 +11,7 @@ import Users from '@/store/modules/users'
 
 export default {
   Assets,
+  Components,
   Channels,
   Collections,
   Forms,
