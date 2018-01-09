@@ -2,7 +2,7 @@ import * as types from '../mutation-types'
 
 // initial state
 const state = {
-  id: null,
+  id: 10,
 }
 
 // getters

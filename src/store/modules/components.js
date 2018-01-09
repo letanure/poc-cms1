@@ -1,23 +1,33 @@
-// import Vue from 'vue'
-// import * as types from '../mutation-types'
-import * as components from '@/components/ui/configs'
+import * as types from '../mutation-types'
+import * as emptyComponents from '@/components/ui/configs'
 
 // initial state
 const state = {
-  components: components,
+  emptyComponents: emptyComponents,
+  editingComponentName: null,
 }
 
 // getters
 const getters = {
-  componentsList: state => state.components,
+  emptyComponentsList: state => state.emptyComponents,
+  editingComponentConfig: state => state.emptyComponents[state.editingComponentName],
 }
 
 // actions
 const actions = {
+  editComponent ({ commit }, componentName) {
+    return new Promise((resolve) => {
+      commit(types.COMPONENT_EDIT, { componentName })
+      resolve()
+    })
+  },
 }
 
 // mutations
 const mutations = {
+  [types.COMPONENT_EDIT] (state, { componentName }) {
+    state.editingComponentName = componentName
+  },
 }
 
 export default {

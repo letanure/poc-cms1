@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Add component ComponentListAdd
+- Add barrel for @/components/admin/compose/components
+- Add action and mutation for componnet edit
 ### Changed
 ### Deprecated
 ### Removed

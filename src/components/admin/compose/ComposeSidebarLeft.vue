@@ -1,73 +1,17 @@
 <template lang="pug">
   nav.ComposeSidebarLeft
     .section.is-small
-      menu-ui(:groups='menuGroups', @click='clickComponent')
+      component-list-add()
 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { MenuUi } from '@/components/ui'
+import { ComponentListAdd } from '@/components/admin/compose/components'
 
 export default {
   name: 'ComposeSidebarLeft',
   components: {
-    MenuUi,
-  },
-  data () {
-    return {
-      menuGroups: [],
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'componentsList',
-    ]),
-  },
-
-  beforeMount () {
-    this.setMenuBlankComponents()
-    this.setMenuFilledComponents()
-  },
-
-  methods: {
-    clickComponent (item) {
-      this.$store.dispatch('addComponent', item.value).then(() => {
-      })
-    },
-
-    setMenuBlankComponents () {
-      const menuGroup = {
-        label: 'Blank Components',
-        items: [],
-      }
-      Object
-        .keys(this.componentsList)
-        // .filter((componentName) => this.componentsList[componentName].group === 'components')
-        .filter((componentName) => this.componentsList[componentName].listable)
-        .forEach((componentKey) => {
-          const component = this.componentsList[componentKey]
-          const componentItem = {
-            text: component.label,
-            icon: component.icon,
-            link: {
-              type: 'button',
-              name: ('PagesList' + component.icon),
-            },
-            value: component.name,
-          }
-          menuGroup.items.push(componentItem)
-        })
-      this.menuGroups.push(menuGroup)
-    },
-
-    setMenuFilledComponents () {
-      const menuGroup = {
-        label: 'Filled Components',
-        items: [],
-      }
-      this.menuGroups.push(menuGroup)
-    },
+    ComponentListAdd,
   },
 }
 </script>
