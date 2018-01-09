@@ -9,6 +9,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add component ComponentListAdd
 - Add barrel for @/components/admin/compose/components
 - Add action and mutation for componnet edit
+- Add form components
+  - CheckboxUi,
+  - FileUi,
+  - FormUi,
+  - InputUi,
+  - RadioUi,
+  - SelectUi,
+  - TexareaUi
 ### Changed
 ### Deprecated
 ### Removed
