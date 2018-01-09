@@ -6,9 +6,68 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased](../../compare/master...dev)
 ### Added
+- Add active class on admin menu
+- Redirect from admin empty route (/admin/ to /admin/dashboard)
+- Add vuelidate lib to validate forms
+- Add news component FormField
+- Add store pages methods to add and remove
+- Add ButtonUi component
+- Add CollapseUi component
+- Add Color and size props to iconUi
+- Add pages by ID on mock api
+- Add getPageBy ID on pages API
+- Add layout componnets for compose
+  - ComposeFooter
+  - ComposeHeader
+  - ComposeMain
+  - ComposeSidebarLeft
+  - ComposeSidebarRight
+- Add gridcomponents in ComposeMain
+- Add highlight row and colum in ComposeMain
+- Load components list in ComposeSidebarLeft
+- Add barrels for components, split components per type in folders
+- Ad page form
+- Add demo component
+- Add extra actions to pgestable admin
+- Add vue transitions in layoutadmin
+- Add mock component CardUi
+- Add mock component DropdownUi
+- Add mock component ModalUi
+- Add mock component NavbarUi
+- Add mock component PaginationUi
+- Add mock component PanelUi
+- Add mock component BoxUi
+- Add mock component ContentUi
+- Add mock component DeleteUi
+- Add mock component ImageUi
+- Add mock component NotificationUi
+- Add mock component ProgressUi
+- Add mock component TableUi
+- Add mock component TitleUi
+- Add mock component FormField
+- Add component TagUi
+- Add component ButtonUi
+- Add component CollapseUi
+- Add component LoadingUi
+- Add barrel for components ui configs
+- Add components configs
+- Add empty link option to MenuUi
+- Add routers for compose page
+- Add store components
+- Add store page actions
+- Add store pages actions
+- Add simple etsts for components and update older ones
 ### Changed
+- Update layoutAdmin props (avoid mix with routes)
+- Updated vue from 2.5.2 to 2.5.13
+- Changed the layoutAdmin grid to prevent jump of content on transition
+- Load components ui barrel in gridComponents
+- Update login grid
+- Use component buttonUI in admintable
+- fix class name in breadcrumbUi
 ### Deprecated
 ### Removed
+- Removed old props title and subtitle in AdminTable
 ### Fixed
 ### Security
 

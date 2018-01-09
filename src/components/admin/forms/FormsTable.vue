@@ -9,9 +9,7 @@
       :routeEditName='routeEditName',
       :storeGetter='storeGetter',
       :storeRemove='storeRemove',
-      :subtitle='subtitle',
       :tableCols='tableCols',
-      :title='title',
       )
 </template>
 
@@ -32,11 +30,9 @@ export default {
       routeEditName: 'FormsEdit',
       storeGetter: 'formsList',
       storeRemove: 'formRemove',
-      subtitle: 'Forms description',
       tableCols: [
         { label: 'Name', prop: 'name' },
       ],
-      title: 'Forms',
     }
   },
 }

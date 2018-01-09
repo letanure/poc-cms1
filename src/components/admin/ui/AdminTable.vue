@@ -16,14 +16,27 @@
               td.
                 {{ itemRow[col.prop] }}
             td
-              router-link.button.is-info.is-small.is-outlined(:to='{ name: routeEditName, params: { slug: itemRow[itemKey] }}', )
-                icon-ui(type='pencil')
-                span.
-                  Edit
-              .button.is-danger.is-small.is-outlined(@click='confirmRemove(key)',)
-                icon-ui(type='trash')
-                span.
-                  Delete
+              button-ui(
+                color='info',
+                iconType='pencil',
+                :outlined='true',
+                size='small',
+                tag='router-link',
+                text='Edit',
+                :to='{ name: routeEditName, params: { slug: itemRow[itemKey] }}',
+                )
+              button-ui(
+                @click='confirmRemove(key)',
+                color='danger',
+                iconType='trash',
+                :outlined='true',
+                size='small',
+                tag='button',
+                text='Delete',
+                )
+
+              template(v-for='action in extraActions')
+                button-ui(v-bind='actionWithSlug(itemRow[itemKey], action)')
 
     template(v-else)
       h5.title.is-5
@@ -44,15 +57,21 @@
 </template>
 
 <script>
-import { ConfirmUi, IconUi } from '@/components/ui'
+import { ButtonUi, ConfirmUi, IconUi } from '@/components/ui'
 
 export default {
   name: 'AdminTable',
   components: {
+    ButtonUi,
     ConfirmUi,
     IconUi,
   },
   props: {
+    extraActions: {
+      default: () => [],
+      type: Array,
+      required: false,
+    },
     itemKey: {
       default: '',
       type: String,
@@ -88,20 +107,10 @@ export default {
       type: String,
       required: true,
     },
-    subtitle: {
-      default: '',
-      type: String,
-      required: false,
-    },
     tableCols: {
       default: () => [],
       type: Array,
       required: true,
-    },
-    title: {
-      default: '',
-      type: String,
-      required: false,
     },
   },
   data () {
@@ -146,6 +155,13 @@ export default {
     this.labelPlural = this.itemPlural
   },
   methods: {
+    actionWithSlug (itemKey, action) {
+      action.to.params = {
+        slug: itemKey,
+      }
+      return action
+    },
+
     checkAnswer (answer) {
       this.activeModal = false
       if (answer) {

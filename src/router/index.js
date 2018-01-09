@@ -22,6 +22,11 @@ import {
   CollectionsAdmin,
   CollectionsForm,
   CollectionsTable,
+  ComposeFooter,
+  ComposeHeader,
+  ComposeMain,
+  ComposeSidebarLeft,
+  ComposeSidebarRight,
   FormsAdmin,
   FormsForm,
   FormsTable,
@@ -37,6 +42,8 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  linkActiveClass: 'is-active',
+  linkExactActiveClass: 'is-active',
   routes: [
     // Sign In
     {
@@ -44,9 +51,11 @@ const router = new Router({
       name: 'login',
       component: LayoutAdmin,
       props: {
-        header: false,
-        sidebar: false,
-        footer: false,
+        hasHeader: false,
+        hasSidebarLeft: true,
+        hasMain: true,
+        hasSidebarRight: false,
+        hasFooter: false,
       },
       meta: {
         requiresAuth: false,
@@ -74,33 +83,106 @@ const router = new Router({
         },
       ],
     },
-    // Admin
+    // compose
     {
-      path: '/admin',
+      path: 'pages/compose',
+      name: 'PagesComposeHome',
       component: LayoutAdmin,
+      props: {
+        hasHeader: true,
+        hasSidebarLeft: true,
+        hasMain: true,
+        hasSidebarRight: true,
+        hasFooter: true,
+      },
+      redirect: {
+        name: 'DashboardAdmin',
+      },
       meta: {
         requiresAuth: true,
       },
       children: [
         {
-          path: '',
+          path: '/admin/pages/:slug/compose',
+          name: 'PagesCompose',
+          components: {
+            header: ComposeHeader,
+            main: ComposeMain,
+            sidebarLeft: ComposeSidebarLeft,
+            sidebarRight: ComposeSidebarRight,
+            footer: ComposeFooter,
+          },
+          props: {
+            header: false,
+            main: true,
+            sidebarLeft: false,
+            sidebarRight: false,
+            footer: false,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        {
+          path: '/admin/pages/:slug/edit-content',
+          name: 'PagesEditContent',
+          components: {
+            header: ComposeHeader,
+            main: ComposeMain,
+            sidebarRight: ComposeSidebarRight,
+            footer: ComposeFooter,
+          },
+          props: {
+            header: false,
+            main: true,
+            sidebarLeft: false,
+            sidebarRight: false,
+            footer: false,
+          },
+          meta: {
+            requiresAuth: true,
+          },
+        },
+      ],
+    },
+    // Admin
+    {
+      path: '/admin',
+      component: LayoutAdmin,
+      props: {
+        hasHeader: true,
+        hasSidebarLeft: true,
+        hasMain: true,
+        hasSidebarRight: false,
+        hasFooter: false,
+      },
+      redirect: {
+        name: 'DashboardAdmin',
+      },
+      meta: {
+        requiresAuth: true,
+      },
+      children: [
+        {
+          path: 'dashboard',
           name: 'DashboardAdmin',
           components: {
             header: AdminHeader,
             main: DashboardAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
           },
         },
+
         // pages
         {
           path: 'pages',
           components: {
             header: AdminHeader,
             main: PagesAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
@@ -123,7 +205,7 @@ const router = new Router({
               },
             },
             {
-              path: 'edit/:slug',
+              path: ':slug/edit',
               name: 'PagesEdit',
               component: PagesForm,
               props: true,
@@ -133,13 +215,14 @@ const router = new Router({
             },
           ],
         },
+
         // Assets
         {
           path: 'assets',
           components: {
             header: AdminHeader,
             main: AssetsAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
@@ -179,7 +262,7 @@ const router = new Router({
           components: {
             header: AdminHeader,
             main: CollectionsAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
@@ -219,7 +302,7 @@ const router = new Router({
           components: {
             header: AdminHeader,
             main: FormsAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
@@ -259,7 +342,7 @@ const router = new Router({
           components: {
             header: AdminHeader,
             main: UsersAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: false,
@@ -299,7 +382,7 @@ const router = new Router({
           components: {
             header: AdminHeader,
             main: SettingsAdmin,
-            sidebar: SideMenu,
+            sidebarLeft: SideMenu,
           },
           meta: {
             requiresAuth: true,
@@ -387,6 +470,7 @@ const router = new Router({
         },
       ],
     },
+
     // Public site
     {
       path: '/:url*',

@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.BreadcrumbUI.breadcrumb(:class='classes', aria-label='breadcrumbs', )
+  nav.BreadcrumbUi.breadcrumb(:class='classes', aria-label='breadcrumbs', )
     ul()
       li()
         a(href="#", ) Bulma
@@ -71,5 +71,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .BreadcrumbUI
+// .BreadcrumbUi
 </style>

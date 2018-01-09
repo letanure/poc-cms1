@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import * as types from '../mutation-types'
 
 // initial state
@@ -25,10 +26,17 @@ const getters = {
 
 // actions
 const actions = {
-  updateUrl ({ commit }, url) {
+  savePage ({ commit }, page) {
     return new Promise((resolve) => {
-      const content = {}
-      commit(types.PAGES_UPDATE, { content })
+      const content = page
+      commit(types.PAGES_SAVE, { content })
+      resolve()
+    })
+  },
+
+  pagesRemove ({ commit }, key) {
+    return new Promise((resolve) => {
+      commit(types.LANGUAGE_REMOVE, { key })
       resolve()
     })
   },
@@ -36,6 +44,16 @@ const actions = {
 
 // mutations
 const mutations = {
+
+  [types.PAGES_REMOVE] (state, { key }) {
+    Vue.delete(state.pages, key)
+  },
+
+  [types.PAGES_SAVE] (state, { content }) {
+    content.id = Date.now()
+    state.pages[Date.now()] = content
+  },
+
   [types.PAGES_UPDATE] (state, { content }) {
     state.content = content
   },

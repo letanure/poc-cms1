@@ -9,11 +9,18 @@
         ul.menu-list
           template(v-for='item in group.items', )
             li
-              router-link(:to='{name: item.link.name}')
-                template(v-if='item.icon')
-                  icon-ui(:type='item.icon')
-                span.
-                  {{ item.text }}
+              template(v-if='item.link.type === "router"')
+                router-link(:to='{name: item.link.name}')
+                  template(v-if='item.icon')
+                    icon-ui(:type='item.icon')
+                  span.
+                    {{ item.text }}
+              template(v-else)
+                a(@click='clickItem(item)')
+                  template(v-if='item.icon')
+                    icon-ui(:type='item.icon')
+                  span.
+                    {{ item.text }}
               template(v-if='item.subitems')
                 ul
                   template(v-for='subitem in item.subitems', )
@@ -26,7 +33,7 @@
 </template>
 
 <script>
-import IconUi from '@/components/ui/IconUi'
+import IconUi from '@/components/ui/elements/IconUi/IconUi'
 
 export default {
   name: 'MenuUi',
@@ -38,6 +45,11 @@ export default {
       default: () => [],
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    clickItem (item) {
+      this.$emit('click', item)
     },
   },
 }

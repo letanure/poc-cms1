@@ -1,6 +1,7 @@
 <template lang="pug">
   nav.SideMenu
-    menu-ui(:groups='menuGroups')
+    .section
+      menu-ui(:groups='menuGroups')
 
     //- .menu.animated.slideInLeft
 </template>
@@ -111,4 +112,8 @@ export default {
 <style lang="stylus">
 .SideMenu
   background-color #fff
+  .menu-list
+    li
+      a
+        transition background .2s linear
 </style>

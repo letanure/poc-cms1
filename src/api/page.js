@@ -1,14 +1,29 @@
 import request from '@/api/request'
 
-const getPage = (url) => {
+const getPageById = (id) => {
+  return request({
+    url: `/pages/${id}`,
+    method: 'GET',
+  })
+}
+
+const getPageByUrl = (url) => {
   return request({
     url: `/pages/${url}`,
     method: 'GET',
   })
 }
 
-const getPageContent = (url) => {
-  return getPage(url)
+const getPageContentById = (url) => {
+  return getPageByUrl(url)
+    .then((response) => {
+      const content = response.data.content
+      return content
+    })
+}
+
+const getPageContentByUrl = (url) => {
+  return getPageById(url)
     .then((response) => {
       const content = response.data.content
       return content
@@ -16,8 +31,10 @@ const getPageContent = (url) => {
 }
 
 const PagesApi = {
-  getPage,
-  getPageContent,
+  getPageById,
+  getPageByUrl,
+  getPageContentById,
+  getPageContentByUrl,
 }
 
 export default PagesApi

@@ -1,24 +1,9 @@
-<template lang="pug">
-  .ChannelsAdmin
-
-    .columns
-      .column
-        h1.title.
-          {{ title }}
-        h2.subtitle.
-          {{ subtitle }}
-
-    .columns
-      .column
-        .box
-
-          router-view
-</template>
-
 <script>
+import SectionHome from '@/components/admin/ui/SectionHome'
 
 export default {
   name: 'ChannelsAdmin',
+  extends: SectionHome,
   data () {
     return {
       subtitle: 'Channels description',
@@ -27,7 +12,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus">
-// .ChannelsAdmin
-</style>

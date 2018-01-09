@@ -3,7 +3,8 @@ import * as types from '@/store/mutation-types'
 import PagesApi from '@/api/page'
 
 jest.mock('@/api/page', () => ({
-  getPageContent: jest.fn(() => Promise.resolve({ data: 3 }))
+  getPageContentByUrl: jest.fn(() => Promise.resolve({ data: 3 })),
+  getPageContentById: jest.fn(() => Promise.resolve({ data: 3 }))
 }))
 
 describe('Store page', () => {
@@ -18,10 +19,16 @@ describe('Store page', () => {
       }
     })
 
+    it('loadPageById calls fetch page', () => {
+      const url = 'test'
+      store.actions.loadPageById(context, url)
+      expect(PagesApi.getPageContentById).toBeCalledWith('test')
+    })
+
     it('updateUrl calls fetch page', () => {
       const url = 'test'
       store.actions.updateUrl(context, url)
-      expect(PagesApi.getPageContent).toBeCalledWith('test')
+      expect(PagesApi.getPageContentByUrl).toBeCalledWith('test')
     })
 
     // it('updateUrl calls commit', () => {
