@@ -6,6 +6,8 @@
       :class='classes',
       :disabled='disabled',
       :readonly='readonly',
+      v-bind:value='value',
+      v-on:input='updateValue($event.target.value)'
       )
 </template>
 
@@ -30,25 +32,35 @@ export default {
       },
     },
 
+    disabled: {
+      default: false,
+      type: Boolean,
+      required: false,
+    },
+
+    layout: {
+      default: 'default',
+      type: String,
+      required: false,
+      validator (option) {
+        const options = [
+          'default',
+          'rounded',
+        ]
+        return options.includes(option)
+      },
+    },
+
     placeholder: {
       default: null,
       type: String,
       required: true,
     },
 
-    type: {
-      default: 'text',
-      type: String,
+    readonly: {
+      default: false,
+      type: Boolean,
       required: false,
-      validator (option) {
-        const options = [
-          'text',
-          'password',
-          'email',
-          'tel',
-        ]
-        return options.includes(option)
-      },
     },
 
     size: {
@@ -81,35 +93,31 @@ export default {
       },
     },
 
-    layout: {
-      default: 'default',
+    static: {
+      default: false,
+      type: Boolean,
+      required: false,
+    },
+
+    type: {
+      default: 'text',
       type: String,
       required: false,
       validator (option) {
         const options = [
-          'default',
-          'rounded',
+          'text',
+          'password',
+          'email',
+          'tel',
         ]
         return options.includes(option)
       },
     },
 
-    disabled: {
-      default: false,
-      type: Boolean,
-      required: false,
-    },
-
-    readonly: {
-      default: false,
-      type: Boolean,
-      required: false,
-    },
-
-    static: {
-      default: false,
-      type: Boolean,
-      required: false,
+    value: {
+      default: null,
+      type: String,
+      required: true,
     },
   },
   computed: {
@@ -130,6 +138,11 @@ export default {
         classes.push(`is-${this.state}`)
       }
       return [...new Set(classes)]
+    },
+  },
+  methods: {
+    updateValue (value) {
+      this.$emit('input', value)
     },
   },
 }
