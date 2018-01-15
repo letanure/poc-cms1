@@ -4,7 +4,15 @@
       template(v-if='control.label')
         label.label
           | {{ control.label }}
-      component(:is='defineComponent(control.type)', v-bind='control',)
+      component(
+        :is='defineComponent(control.type)',
+        v-bind='control',
+        v-bind:value='control.value',
+        v-on:input='updateValue($event, control.name)'
+      )
+      template(v-if='control.errorMessage')
+        p.help.is-danger
+          | {{ control.errorMessage }}
       template(v-if='control.help')
         p.help(:class='colorClass(control.color)')
           | {{ control.help }}
@@ -106,6 +114,10 @@ export default {
         'file': 'file.ui',
       }
       return componentsRelations[type]
+    },
+
+    updateValue (value, name) {
+      this.$emit('input', {name: name, value: value})
     },
   },
 }
