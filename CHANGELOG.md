@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Add form builder
 - Updated Vue from 2.5.2 to 2.5.13
 ### Changed
+- Add type to ButtonUi
 ### Deprecated
 ### Removed
 ### Fixed

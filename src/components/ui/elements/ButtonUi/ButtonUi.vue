@@ -5,6 +5,7 @@
       :disabled='disabled',
       :is="tag",
       :to="to",
+      :type='type',
     )
       template(v-if='hasIcon && iconPosition ==="left" ')
         icon-ui(:type='iconType')
@@ -149,6 +150,20 @@ export default {
       default: () => {},
       type: Object,
       required: false,
+    },
+
+    type: {
+      default: false,
+      type: [Boolean, String],
+      required: false,
+      validator (option) {
+        const options = [
+          false,
+          'button',
+          'submit',
+        ]
+        return options.includes(option)
+      },
     },
 
   },
