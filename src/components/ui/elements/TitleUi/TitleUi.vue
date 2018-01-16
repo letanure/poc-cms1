@@ -27,15 +27,15 @@ export default {
 
     titleSize: {
       default: null,
-      type: String,
+      type: Number,
       required: false,
       validator (num) {
-        return inRange(num, 1, 6)
+        return inRange(num, 1, 7)
       },
     },
 
     subtitle: {
-      default: 'Subtitle',
+      default: '',
       type: String,
       required: false,
     },
@@ -51,7 +51,7 @@ export default {
       type: Number,
       required: false,
       validator (num) {
-        return inRange(num, 1, 6)
+        return inRange(num, 1, 7)
       },
     },
 
@@ -61,7 +61,7 @@ export default {
       required: false,
     },
   },
-  methods: {
+  computed: {
     titleClasses () {
       const spacedClass = this.spaced ? 'is-spaced' : ''
       return [`is-${this.titleSize}`, spacedClass]
