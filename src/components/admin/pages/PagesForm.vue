@@ -1,17 +1,24 @@
 <template lang="pug">
   .PagesForm
-    h1 Form
+    .columns
+      .column
+        form-ui(
+          :header='form.header',
+          :fields='form.fields',
+          :actions='form.actions',
+          v-model="formData",
+          @submit='submit'
+          )
 </template>
 
 <script>
-import { validationMixin } from 'vuelidate'
-import { minLength, required } from 'vuelidate/lib/validators'
+import { FormUi } from '@/components/ui/form'
 
 export default {
   name: 'PagesForm',
   components: {
+    FormUi,
   },
-  mixins: [validationMixin],
   props: {
     slug: {
       default: 0,
@@ -21,37 +28,61 @@ export default {
   },
   data () {
     return {
-      page: {
-        name: '',
-        url: 'teaaa',
+      formData: {},
+      form: {
+        header: {
+          title: 'Add Page',
+          titleSize: 4,
+        },
+        fields: [
+          {
+            controls: [
+              {
+                label: 'Name',
+                name: 'name',
+                placeholder: 'Short descritive name',
+                type: 'text',
+                value: '',
+                validations: {
+                  required: true,
+                  minLength: 5,
+                },
+              },
+            ],
+          },
+          {
+            controls: [
+              {
+                label: 'URL',
+                name: 'url',
+                placeholder: 'URL starting with /',
+                type: 'text',
+                value: '',
+                validations: {
+                  required: true,
+                  isUrlPath: true,
+                },
+              },
+            ],
+          },
+        ],
+        actions: [
+          {
+            color: 'primary',
+            text: 'Save',
+            tag: 'button',
+            type: 'submit',
+          },
+        ],
       },
     }
   },
-  validations: {
-    page: {
-      name: {
-        required,
-        minLength: minLength(2),
-      },
-      url: {
-        required,
-        minLength: minLength(2),
-      },
-    },
-  },
   methods: {
-    add () {},
-    clean () {},
-    handleSubmit () {
-      const isValid = !this.$v.$invalid
-      this.$v.$touch()
-      if (isValid) {
-        this.$store.dispatch('savePage', this.page).then(() => {
-          this.$router.push({name: 'PagesList'})
-        })
-      }
+    submit (data) {
+      this.$store.dispatch('savePage', data).then(() => {
+        this.$router.push({name: 'PagesList'})
+      })
     },
-    update () {},
   },
 }
 </script>
