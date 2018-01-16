@@ -76,12 +76,105 @@
               div
                 .heading Success %
                 .title.is-5 + 28,5%
+
+    .columns
+      .column
+        h1 {{formData}}
+        form-ui(
+          :header='form.header',
+          :fields='form.fields',
+          :actions='form.actions',
+          v-model="formData",
+          @submit='submit'
+          )
 </template>
 
 <script>
+import FormUi from '@/components/ui/form/FormUi/FormUi'
 
 export default {
   name: 'DashboardAdmin',
+  components: {
+    FormUi,
+  },
+  data () {
+    return {
+      formData: {},
+      form: {
+        header: {
+          title: 'title 1',
+          subtitle: 'subtitle 1',
+        },
+        fields: [
+          // field one
+          {
+            // addons: 'addons',
+            controls: [
+              {
+                label: 'Name2',
+                name: 'Name2',
+                placeholder: 'Placeholder',
+                type: 'text',
+                value: '',
+                validations: {
+                  required: true,
+                },
+              },
+              {
+                label: 'Name3',
+                name: 'Name3',
+                placeholder: 'Placeholder',
+                type: 'text',
+                value: 'olá2',
+                validations: {
+                  required: true,
+                  minLength: 8,
+                },
+              },
+            ],
+          },
+          {
+            controls: [
+              {
+                label: 'Name4',
+                name: 'Name4',
+                placeholder: 'Placeholder',
+                type: 'text',
+                value: 'ol',
+                help: 'bla',
+                color: 'info',
+              },
+              {
+                label: 'Name5',
+                name: 'Name5',
+                placeholder: 'Placeholder',
+                type: 'text',
+                value: 'olá2',
+              },
+            ],
+          },
+        ],
+        actions: [
+          {
+            color: 'link',
+            text: 'Submit',
+            tag: 'button',
+            type: 'submit',
+          },
+          {
+            color: 'text',
+            text: 'Cancel',
+          },
+        ],
+      },
+    }
+  },
+  methods: {
+    submit (data) {
+      console.log('DashboardAdmin.vue', data)
+      this.formData = data
+    },
+  },
 }
 </script>
 
