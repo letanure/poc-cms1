@@ -5,7 +5,7 @@ import FormUi from '@/components/ui/form/FormUi/FormUi'
 import InputUi from '@/components/ui/form/InputUi/InputUi'
 import RadioUi from '@/components/ui/form/RadioUi/RadioUi'
 import SelectUi from '@/components/ui/form/SelectUi/SelectUi'
-import TexareaUi from '@/components/ui/form/TexareaUi/TexareaUi'
+import TextareaUi from '@/components/ui/form/TextareaUi/TextareaUi'
 
 export {
   CheckboxUi,
@@ -15,5 +15,5 @@ export {
   InputUi,
   RadioUi,
   SelectUi,
-  TexareaUi,
+  TextareaUi
 }
