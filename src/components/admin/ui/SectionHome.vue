@@ -3,10 +3,7 @@
 
     .columns
       .column
-        h1.title.
-          {{ title }}
-        h2.subtitle.
-          {{ subtitle }}
+        title-ui(v-bind='header')
 
     .columns
       .column
@@ -16,13 +13,19 @@
 </template>
 
 <script>
+import { TitleUi } from '@/components/ui'
 
 export default {
   name: 'SectionHome',
+  components: {
+    TitleUi,
+  },
   data () {
     return {
-      subtitle: 'Section description',
-      title: 'Section',
+      header: {
+        subtitle: 'Section description',
+        title: 'Section',
+      },
     }
   },
 }

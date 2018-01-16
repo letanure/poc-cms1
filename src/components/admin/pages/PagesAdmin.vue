@@ -6,8 +6,10 @@ export default {
   extends: SectionHome,
   data () {
     return {
-      subtitle: 'Pages description',
-      title: 'Pages',
+      header: {
+        subtitle: 'Create and edit page configurations',
+        title: 'Pages',
+      },
     }
   },
 }
