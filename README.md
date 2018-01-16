@@ -147,6 +147,120 @@ this.$store.dispatch('updateUrl', url).then(() => { ... })
 
 Mutations is an object with different methods that take the Observable state as the first parameter. It is here, and ONLY here that any part of the state should be changed.
 
+### Forms
+
+#### Form object:
+
+```js
+data () {
+  return {
+    formData: {},
+    form: {
+      title: 'My form',
+      fields: [
+        // field one
+        {
+          controls: [
+            {
+              label: 'Name1',
+              name: 'Name1',
+              placeholder: 'Placeholder',
+              type: 'text',
+              value: 'ol',
+              help: 'bla',
+              color: 'info',
+              validations: {
+                alpha: true,
+                required: true,
+              },
+            },
+            {
+              // label: 'Name2',
+              name: 'Name2',
+              placeholder: 'Placeholder',
+              type: 'text',
+              value: 'olá2',
+              validations: {
+                minLength: 7,
+              },
+            },
+          ],
+        },
+        {
+          controls: [
+            {
+              label: 'Name3',
+              name: 'Name3',
+              placeholder: 'Placeholder',
+              type: 'text',
+              value: 'ol',
+              help: 'bla',
+              color: 'info',
+            },
+            {
+              label: 'Name4',
+              name: 'Name4',
+              placeholder: 'Placeholder',
+              type: 'text',
+              value: 'olá2',
+            },
+          ],
+        },
+      ],
+      actions: [
+        {
+          color: 'link',
+          text: 'Submit',
+          tag: 'button',
+          type: 'submit',
+        },
+        {
+          color: 'text',
+          text: 'Cancel',
+        },
+      ],
+    },
+  }
+},
+```
+
+#### Form validation methods:
+
+We use `vuelidate` methods
+
+```js
+{
+  validations: {
+    alpha: true,
+    alphaNum: true,
+    email: true,
+    ipAddress: true,
+    maxLength: 6,
+    maxValue: 10,
+    minLength: 7,
+    minValue: 8,
+    numeric: true,
+    required: true,
+    url: true,
+    sameAs: 'Name2',
+    between: {
+      min: 5,
+      max: 10,
+    },
+    requiredIf: {
+      control: 'Name2',
+      operator: '=', // = OR >= OR <=
+      value: '10',
+    },
+    // or: validators,
+    // and: ['Name2'],
+    // requiredUnless: locator,
+    // withParams:  params,
+  }
+}
+```
+
+
 ## History
 
 Check the [CHANGELOG.md](CHANGELOG.md) file to see the development rules.

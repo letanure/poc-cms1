@@ -1,6 +1,6 @@
 <template lang="pug">
   .FieldUi.field(:class='classes', )
-    template(v-for='control in controls', )
+    template(v-for='(control, indexControl) in controls', )
       template(v-if='control.label')
         label.label
           | {{ control.label }}
@@ -10,9 +10,13 @@
         v-bind:value='control.value',
         v-on:input='updateValue($event, control.name)'
       )
-      template(v-if='control.errorMessage')
-        p.help.is-danger
-          | {{ control.errorMessage }}
+
+      template(v-if='errors[indexControl]')
+        transition-group(name='slideUp', appear)
+          template(v-for='(error, indexError) in errors[indexControl]',)
+            p.control-error.help.is-danger(:key='indexError', )
+              | {{ error }}
+
       template(v-if='control.help')
         p.help(:class='colorClass(control.color)')
           | {{ control.help }}
@@ -39,12 +43,6 @@ export default {
     TextareaUi,
   },
   props: {
-    controls: {
-      default: () => [],
-      type: Array,
-      required: true,
-    },
-
     addons: {
       default: 'default',
       type: String,
@@ -58,6 +56,18 @@ export default {
         ]
         return options.includes(option)
       },
+    },
+
+    controls: {
+      default: () => [],
+      type: Array,
+      required: true,
+    },
+
+    errors: {
+      default: () => [],
+      type: Array,
+      required: false,
     },
 
     grouped: {
@@ -89,6 +99,10 @@ export default {
         classes.push(`is-${this.grouped}`)
       }
       return [...new Set(classes)]
+    },
+
+    hasAddon () {
+      return this.addons !== 'default'
     },
   },
 
@@ -124,5 +138,25 @@ export default {
 </script>
 
 <style lang="stylus">
-// .FieldUi
+.FieldUi
+  &.has-addons
+    flex-wrap wrap
+    .label
+      width 100%
+      order 0
+    .control
+      order 1
+      & + span
+        order 2
+        width 100%
+  .control-error, .in-out
+    height 20px
+    transition height .2s linear
+  .slideUp-enter-active, .slideUp-leave-active
+    transition transform .2s linear
+    opacity 1
+  .slideUp-enter, .slideUp-leave-to
+    transform translate(0, -10px)
+    opacity 0
+    height 0px
 </style>
