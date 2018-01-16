@@ -7,7 +7,6 @@ import ConfirmUi from '@/components/ui/custom/ConfirmUi/ConfirmUi'
 import ContentUi from '@/components/ui/elements/ContentUi/ContentUi'
 import DeleteUi from '@/components/ui/elements/DeleteUi/DeleteUi'
 import DropdownUi from '@/components/ui/components/DropdownUi/DropdownUi'
-import FormFieldold from '@/components/ui/form/FormFieldold/FormFieldold'
 import IconUi from '@/components/ui/elements/IconUi/IconUi'
 import ImageUi from '@/components/ui/elements/ImageUi/ImageUi'
 import LoadingUi from '@/components/ui/custom/LoadingUi/LoadingUi'
@@ -33,7 +32,6 @@ export {
   ContentUi,
   DeleteUi,
   DropdownUi,
-  FormFieldold,
   IconUi,
   ImageUi,
   LoadingUi,
