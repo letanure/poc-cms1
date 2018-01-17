@@ -7,8 +7,8 @@
       component(
         :is='defineComponent(control.type)',
         v-bind='control',
-        v-bind:value='control.value',
-        v-on:input='updateValue($event, control.name)'
+        v-bind:value='controlValue(control.name)',
+        v-on:input='updateValue($event, control.name)',
       )
 
       template(v-if='errors[indexControl]')
@@ -70,6 +70,12 @@ export default {
       required: false,
     },
 
+    values: {
+      default: () => {},
+      type: Object,
+      required: false,
+    },
+
     grouped: {
       default: 'default',
       type: String,
@@ -107,6 +113,14 @@ export default {
   },
 
   methods: {
+    controlValue (controlName) {
+      let value = null
+      if (this.values) {
+        value = this.values[controlName]
+      }
+      return value
+    },
+
     colorClass (color) {
       const classes = [
         `is-${color}`,
