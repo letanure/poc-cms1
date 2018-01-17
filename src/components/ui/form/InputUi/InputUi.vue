@@ -54,7 +54,7 @@ export default {
     placeholder: {
       default: null,
       type: String,
-      required: true,
+      required: false,
     },
 
     readonly: {
@@ -117,7 +117,7 @@ export default {
     value: {
       default: null,
       type: String,
-      required: true,
+      required: false,
     },
   },
   computed: {
