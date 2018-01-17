@@ -79,14 +79,16 @@
 
     .columns
       .column
-        h1 {{formData}}
-        form-ui(
-          :header='form.header',
-          :fields='form.fields',
-          :actions='form.actions',
-          v-model="formData",
-          @submit='submit'
-          )
+        pre formData {{formData}}
+        .box
+          form-ui(
+            :header='form.header',
+            :fields='form.fields',
+            :actions='form.actions',
+            :value='formValues',
+            xv-model="formData",
+            @submit='submit'
+            )
 </template>
 
 <script>
@@ -100,32 +102,28 @@ export default {
   data () {
     return {
       formData: {},
+
       form: {
         header: {
-          title: 'title 1',
-          subtitle: 'subtitle 1',
+          title: 'Form 1',
         },
         fields: [
           // field one
           {
-            // addons: 'addons',
+            addons: 'addons',
             controls: [
               {
-                label: 'Name2',
-                name: 'Name2',
-                placeholder: 'Placeholder',
+                label: 'AA + BB',
+                name: 'aa',
                 type: 'text',
-                value: '',
                 validations: {
                   required: true,
                 },
               },
               {
-                label: 'Name3',
-                name: 'Name3',
-                placeholder: 'Placeholder',
+                // label: 'BB',
+                name: 'bb',
                 type: 'text',
-                value: 'olá2',
                 validations: {
                   required: true,
                   minLength: 8,
@@ -134,22 +132,44 @@ export default {
             ],
           },
           {
+            addons: 'addons',
+            repeat: {
+              model: 'cc',
+            },
             controls: [
               {
-                label: 'Name4',
-                name: 'Name4',
-                placeholder: 'Placeholder',
+                label: 'c1 + c2',
+                name: 'c1',
                 type: 'text',
-                value: 'ol',
-                help: 'bla',
-                color: 'info',
+                validations: {
+                  required: true,
+                },
               },
               {
-                label: 'Name5',
-                name: 'Name5',
-                placeholder: 'Placeholder',
+                // label: 'c2',
+                name: 'c2',
                 type: 'text',
-                value: 'olá2',
+                validations: {
+                  required: true,
+                },
+              },
+            ],
+          },
+          {
+            addons: 'addons',
+            controls: [
+              {
+                label: 'dd + ee',
+                name: 'dd',
+                type: 'text',
+              },
+              {
+                // label: 'ee',
+                name: 'ee',
+                type: 'text',
+                validations: {
+                  required: true,
+                },
               },
             ],
           },
@@ -161,14 +181,34 @@ export default {
             tag: 'button',
             type: 'submit',
           },
+        ],
+      },
+
+      formValues: {
+        aa: 'a1',
+        bb: 'b2',
+        cc: [
           {
-            color: 'text',
-            text: 'Cancel',
+            c1: 'c3-1-1',
+            // c2: 'c3-1-2',
+          },
+          {
+            // c1: 'c3-2-1',
+            c2: 'c3-2-2',
+          },
+          {
+            c1: 'c3-3-1',
+            c2: 'c3-3-2',
+            c3: 'c3-3-3',
           },
         ],
+        // dd: 'd4',
+        ee: 'e5',
+        ff: 'f6',
       },
     }
   },
+
   methods: {
     submit (data) {
       console.log('DashboardAdmin.vue', data)
