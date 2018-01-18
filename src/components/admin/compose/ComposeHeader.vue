@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.ComposeHeader.navbar.has-shadow.is-fixed-top.is-dark(role='navigation', aria-label='main navigation', )
+  nav.ComposeHeader.navbar.has-shadow.is-fixed-top.is-light(role='navigation', aria-label='main navigation', )
     .navbar-brand
       router-link.navbar-item(:to='{ name: "DashboardAdmin" }', )
         .logo

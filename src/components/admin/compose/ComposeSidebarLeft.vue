@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.ComposeSidebarLeft
+  nav.ComposeSidebarLeft.is-light
     .section.is-small
       component-list-add()
 
@@ -18,9 +18,9 @@ export default {
 
 <style lang="stylus">
 .ComposeSidebarLeft
-  background-color #373737
   height calc(100vh - 104px)
   overflow scroll
+  box-shadow 2px 0px 3px rgba(10,10,10,.1)
 
   .section.is-small
     padding 1.5rem
@@ -28,7 +28,6 @@ export default {
   .menu-list
     li
       a
-        color #fff
         transition background .2s linear
         &:hover
           color #373737

@@ -79,7 +79,7 @@ export default {
   .menu-list
     li
       a
-        color #fff
+        white-space nowrap
         transition background .2s linear
         &:hover
           color #373737
