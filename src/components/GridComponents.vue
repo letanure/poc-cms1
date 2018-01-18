@@ -4,11 +4,12 @@
       .columns()
         template(v-for='componentConfig in row',  )
           .column(:class='columnClasses(componentConfig.grid)', :key='componentConfig.key',)
-            component(
-              :is='componentConfig.type',
-              v-bind='componentConfig.props',
-              keep-alive,
-            )
+            transition(name='fade', mode='out-in', appear)
+              component(
+                :is='componentConfig.type',
+                v-bind='componentConfig.props',
+                keep-alive,
+              )
 
 </template>
 
@@ -69,5 +70,9 @@ export default {
 </script>
 
 <style lang="stylus">
-// .GridComponents
+.GridComponents
+  .fade-enter-active, .fade-leave-active
+    transition opacity .1s linear
+  .fade-enter, .fade-leave-to
+    opacity 0
 </style>
