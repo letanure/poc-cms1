@@ -16,7 +16,7 @@
             router-view.section.LayoutAdmin__main(name='main', )
 
       template(v-if='hasSidebarRight', appear)
-        aside.LayoutAdmin__column_sidebarRight.column.is-2()
+        aside.LayoutAdmin__column_sidebarRight.column.is-3()
           transition(name='slideRight', mode='out-in', appear)
             router-view.LayoutAdmin__sidebarRight(name='sidebarRight', )
 
@@ -60,7 +60,7 @@ export default {
     classesMain () {
       let classMain = ''
       if (this.hasSidebarLeft && this.hasSidebarRight) {
-        classMain = 'is-8'
+        classMain = 'is-7'
       }
       if (this.hasSidebarLeft && !this.hasSidebarRight) {
         classMain = 'is-10'
@@ -72,30 +72,31 @@ export default {
 </script>
 
 <style lang="stylus">
-// .LayoutAdmin
-.slideUp-enter-active, .slideUp-leave-active
-  transition transform .3s linear
-.slideUp-enter, .slideUp-leave-to
-  transform translate(0, -60px)
+.LayoutAdmin
 
-.slideDown-enter-active, .slideDown-leave-active
-  transition transform .3s linear
-.slideDown-enter, .slideDown-leave-to
-  transform translate(0, 60px)
+  .slideUp-enter-active, .slideUp-leave-active
+    transition transform .3s linear
+  .slideUp-enter, .slideUp-leave-to
+    transform translate(0, -60px)
 
-.slideLeft-enter-active, .slideLeft-leave-active
-  transition transform .3s linear
-.slideLeft-enter, .slideLeft-leave-to
-  transform translate(-100%, 0)
+  .slideDown-enter-active, .slideDown-leave-active
+    transition transform .3s linear
+  .slideDown-enter, .slideDown-leave-to
+    transform translate(0, 60px)
 
-.slideRight-enter-active, .slideRight-leave-active
-  transition transform .3s linear
-  transition-delay .3s
-.slideRight-enter, .slideRight-leave-to
-  transform translate(100%, 0)
+  .slideLeft-enter-active, .slideLeft-leave-active
+    transition transform .3s linear
+  .slideLeft-enter, .slideLeft-leave-to
+    transform translate(-100%, 0)
 
-.fade-enter-active, .fade-leave-active
-  transition opacity .1s linear
-.fade-enter, .fade-leave-to
-  opacity 0
+  .slideRight-enter-active, .slideRight-leave-active
+    transition transform .3s linear
+    transition-delay .3s
+  .slideRight-enter, .slideRight-leave-to
+    transform translate(100%, 0)
+
+  .fade-enter-active, .fade-leave-active
+    transition opacity .1s linear
+  .fade-enter, .fade-leave-to
+    opacity 0
 </style>
