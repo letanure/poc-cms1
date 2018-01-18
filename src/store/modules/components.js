@@ -11,6 +11,7 @@ const state = {
 const getters = {
   emptyComponentsList: state => state.emptyComponents,
   editingComponentConfig: state => state.emptyComponents[state.editingComponentName],
+  editingComponentMock: state => state.emptyComponents[state.editingComponentName].mock,
 }
 
 // actions
