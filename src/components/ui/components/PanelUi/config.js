@@ -3,7 +3,7 @@ const config = {
   label: 'Panel',
   icon: 'angle-right',
   group: 'components',
-  listable: true,
+  listable: false,
 }
 
 export default config

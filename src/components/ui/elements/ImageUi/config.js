@@ -3,7 +3,7 @@ const config = {
   label: 'Image',
   icon: 'angle-right',
   group: 'elements',
-  listable: true,
+  listable: false,
 }
 
 export default config

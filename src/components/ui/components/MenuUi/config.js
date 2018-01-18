@@ -3,7 +3,7 @@ const config = {
   label: 'Menu',
   icon: 'bars',
   group: 'components',
-  listable: true,
+  listable: false,
 }
 
 export default config

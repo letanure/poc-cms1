@@ -3,7 +3,7 @@ const config = {
   label: 'Collapse',
   icon: 'bars',
   group: 'components',
-  listable: true,
+  listable: false,
 }
 
 export default config

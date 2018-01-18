@@ -3,7 +3,7 @@ const config = {
   label: 'Message',
   icon: 'exclamation',
   group: 'components',
-  listable: true,
+  listable: false,
 }
 
 export default config
