@@ -11,11 +11,10 @@
         v-on:input='updateValue($event, control.name)',
       )
 
-      template(v-if='errors[indexControl]')
-        transition-group(name='slideUp', appear)
-          template(v-for='(error, indexError) in errors[indexControl]',)
-            p.control-error.help.is-danger(:key='indexError', )
-              | {{ error }}
+      template(v-if='errors[control.name]')
+        transition(name='slideUp', appear)
+          p.control-error.help.is-danger(v-if='errors[control.name][0]', )
+            | {{ errors[control.name][0] }}
 
       template(v-if='control.help')
         p.help(:class='colorClass(control.color)')
@@ -65,8 +64,8 @@ export default {
     },
 
     errors: {
-      default: () => [],
-      type: Array,
+      default: () => {},
+      type: Object,
       required: false,
     },
 
@@ -158,8 +157,14 @@ export default {
     .label
       width 100%
       order 0
+      display: none
+      &:first-child
+        display block
     .control
       order 1
+      & + .control-error
+        order 2
+        width 100%
       & + span
         order 2
         width 100%

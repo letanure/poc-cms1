@@ -121,7 +121,7 @@ export default {
                 },
               },
               {
-                // label: 'BB',
+                label: 'BB',
                 name: 'bb',
                 type: 'text',
                 validations: {

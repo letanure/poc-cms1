@@ -1,12 +1,6 @@
 <template lang="pug">
   form.FormUi(v-on:submit.prevent='handleSubmit',)
 
-    .columns
-      .column
-        pre mapModelToControl {{mapModelToControl}}
-      .column
-        pre formModel {{formModel}}
-
     title-ui(v-bind='header')
 
     template(v-for='(field, indexField) in fields', )
@@ -15,6 +9,7 @@
           field-ui(
             :addons='field.addons',
             :controls='field.controls',
+            :errors='errorNested(field.repeat.model, indexField, indexControl)',
             :field='field',
             :values='fieldControlValues(field, indexControl)'
             :grouped='field.grouped',
@@ -25,6 +20,7 @@
         field-ui(
           :addons='field.addons',
           :controls='field.controls',
+          :errors='formErrors',
           :field='field',
           :values='fieldControlValues(field)'
           :grouped='field.grouped',
@@ -42,28 +38,6 @@ import Vue from 'vue'
 import TitleUi from '@/components/ui/elements/TitleUi/TitleUi'
 import FieldUi from '@/components/ui/form/FieldUi/FieldUi'
 import ButtonUi from '@/components/ui/elements/ButtonUi/ButtonUi'
-
-// const errorMessages = {
-//   alpha: 'Please enter characters digits.',
-//   alphaNum: 'Please enter digits and characters digits.',
-//   and: 'and XX',
-//   between: 'Please enter a value between {min} and {max}.',
-//   email: 'Please enter a valid email address.',
-//   ipAddress: 'Please enter a valid IP address',
-//   macAddress: 'macAddress XX',
-//   maxLength: 'Please enter no more than {max} characters.',
-//   maxValue: 'Please enter a value less than or equal to {max}.',
-//   minLength: 'Please enter at least {min} characters.',
-//   minValue: 'Please enter a value greater than or equal to {min}.',
-//   numeric: 'Please enter a valid number.',
-//   or: 'or XX',
-//   required: 'This field is required.',
-//   requiredIf: 'requiredIf XX',
-//   requiredUnless: 'requiredUnless',
-//   sameAs: 'Please enter the same value again.', // ?
-//   url: 'Please enter a valid URL.',
-//   withParams: 'withParams XX',
-// }
 
 export default {
   name: 'FormUi',
@@ -103,24 +77,8 @@ export default {
     return {
       formModel: {},
       mapModelToControl: {},
+      formErrors: {},
     }
-  },
-
-  watch: {
-    // '$v.$invalid': {
-    //   handler (val, oldVal) {
-    //     if (this.$v.$dirty) {
-    //       this.setErrors()
-    //     }
-    //   },
-    //   deep: true,
-    // },
-    // '$v.$dirty': {
-    //   handler (val, oldVal) {
-    //     this.setErrors()
-    //   },
-    //   deep: true,
-    // },
   },
 
   beforeMount () {
@@ -128,6 +86,14 @@ export default {
   },
 
   methods: {
+
+    errorNested (modelName, indexField, indexControl) {
+      let errorObj = {}
+      if (this.formErrors[modelName]) {
+        errorObj = this.formErrors[modelName][indexField]
+      }
+      return errorObj
+    },
 
     fieldControlValues (field, indexControl = false) {
       let values = {}
@@ -194,47 +160,45 @@ export default {
       }
     },
 
-    handleSubmit () {
+    validate () {
       Object.keys(this.formModel).forEach((key, index) => {
-        console.group('key', key)
         const value = this.formModel[key]
         let mapConfig = {}
         let field = {}
         let rules = {}
-        console.log('value', value)
         if (!Array.isArray(value)) {
           mapConfig = this.mapModelToControl[key]
-          console.log('mapConfig', mapConfig)
           field = this.fields[mapConfig.indexField]
-          console.log('field', field)
           rules = field.controls[mapConfig.indexControl].validations
-          console.log('rules', rules)
+          Vue.set(this.formErrors, key, null)
           if (rules) {
             const result = approve.value(value, rules)
-            console.log('result', result)
+            Vue.set(this.formErrors, key, result.errors)
           }
         } else {
-          console.group('sub')
+          Vue.set(this.formErrors, key, [])
           value.forEach((subModel, subModelIndex) => {
-            Object.keys(subModel).forEach((keySubmodel) => {
-              console.log('keySubmodel', keySubmodel)
+            Vue.set(this.formErrors[key], subModelIndex, {})
+            Object.keys(subModel).forEach((keySubmodel, indexSubModel) => {
               mapConfig = this.mapModelToControl[keySubmodel]
-              console.log('mapConfig', mapConfig)
               field = this.fields[mapConfig.indexField]
-              console.log('field', field)
               rules = field.controls[mapConfig.indexControl].validations
-              console.log('rules', rules)
+              const valueSubmodel = this.formModel[key][subModelIndex][keySubmodel]
+              console.log(key, subModelIndex, keySubmodel, valueSubmodel)
+              Vue.set(this.formErrors[key][subModelIndex], keySubmodel, null)
               if (rules) {
-                const result = approve.value(value, rules)
-                console.log('result', result)
+                const result = approve.value(valueSubmodel, rules)
+                Vue.set(this.formErrors[key][subModelIndex], keySubmodel, result.errors)
               }
             })
-            console.log(subModel, subModelIndex)
           })
-          console.groupEnd('sub')
         }
-        console.groupEnd('key')
       })
+      console.log(this.formErrors)
+    },
+
+    handleSubmit () {
+      this.validate()
     },
 
     submit () {
@@ -245,8 +209,5 @@ export default {
 </script>
 
 <style lang="stylus">
-.FormUi
-  pre
-    height 200px
-    overflow scroll
+// .FormUi
 </style>
