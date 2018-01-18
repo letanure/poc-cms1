@@ -126,7 +126,7 @@ export default {
                 type: 'text',
                 validations: {
                   required: true,
-                  minLength: 8,
+                  min: 3,
                 },
               },
             ],
@@ -211,7 +211,6 @@ export default {
 
   methods: {
     submit (data) {
-      console.log('DashboardAdmin.vue', data)
       this.formData = data
     },
   },

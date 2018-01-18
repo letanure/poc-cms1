@@ -1,6 +1,12 @@
 <template lang="pug">
   form.FormUi(v-on:submit.prevent='handleSubmit',)
 
+    .columns
+      .column
+        pre mapModelToControl {{mapModelToControl}}
+      .column
+        pre formModel {{formModel}}
+
     title-ui(v-bind='header')
 
     template(v-for='(field, indexField) in fields', )
@@ -30,6 +36,7 @@
 </template>
 
 <script>
+import approve from 'approvejs'
 import { merge, pick } from 'lodash'
 import Vue from 'vue'
 import TitleUi from '@/components/ui/elements/TitleUi/TitleUi'
@@ -188,7 +195,46 @@ export default {
     },
 
     handleSubmit () {
-      this.submit()
+      Object.keys(this.formModel).forEach((key, index) => {
+        console.group('key', key)
+        const value = this.formModel[key]
+        let mapConfig = {}
+        let field = {}
+        let rules = {}
+        console.log('value', value)
+        if (!Array.isArray(value)) {
+          mapConfig = this.mapModelToControl[key]
+          console.log('mapConfig', mapConfig)
+          field = this.fields[mapConfig.indexField]
+          console.log('field', field)
+          rules = field.controls[mapConfig.indexControl].validations
+          console.log('rules', rules)
+          if (rules) {
+            const result = approve.value(value, rules)
+            console.log('result', result)
+          }
+        } else {
+          console.group('sub')
+          value.forEach((subModel, subModelIndex) => {
+            Object.keys(subModel).forEach((keySubmodel) => {
+              console.log('keySubmodel', keySubmodel)
+              mapConfig = this.mapModelToControl[keySubmodel]
+              console.log('mapConfig', mapConfig)
+              field = this.fields[mapConfig.indexField]
+              console.log('field', field)
+              rules = field.controls[mapConfig.indexControl].validations
+              console.log('rules', rules)
+              if (rules) {
+                const result = approve.value(value, rules)
+                console.log('result', result)
+              }
+            })
+            console.log(subModel, subModelIndex)
+          })
+          console.groupEnd('sub')
+        }
+        console.groupEnd('key')
+      })
     },
 
     submit () {
