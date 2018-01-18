@@ -35,7 +35,7 @@ export default {
       type: Array,
       required: true,
       validator (list) {
-        const defaultKeys = ['label']
+        const defaultKeys = ['label', 'value']
         const isValid = list.every((item) => {
           return isEqual(defaultKeys.sort(), Object.keys(item).sort())
         })
