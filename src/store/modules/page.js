@@ -1,5 +1,6 @@
 import PagesApi from '@/api/page'
 import * as types from '../mutation-types'
+import * as emptyComponents from '@/components/ui/configs'
 
 // initial state
 const state = {
@@ -50,18 +51,17 @@ const actions = {
 const mutations = {
 
   [types.PAGE_ADD_COMPONENT] (state, { componentName }) {
-    var configCompo = {
+    var configComp = {
       'type': componentName,
       'key': new Date().getMilliseconds(),
-      'props': {
-      },
+      'props': emptyComponents[componentName].mock,
       'grid': {
         'row': new Date().getMilliseconds(),
         'columns': 9,
         'offset': 0,
       },
     }
-    state.content.push(configCompo)
+    state.content.push(configComp)
   },
 
   [types.PAGE_UPDATE_CONTENT] (state, { content }) {
