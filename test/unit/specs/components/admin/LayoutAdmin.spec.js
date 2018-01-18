@@ -152,7 +152,7 @@ describe(`${Component.name}.vue`, () => {
       propsMock.hasSidebarLeft = true
       propsMock.hasSidebarRight = true
       const cmp = createCmp(propsMock)
-      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-8').length
+      const count = cmp.vm.$el.querySelectorAll('.LayoutAdmin__column_main.is-7').length
       expect(count).toBe(1)
     })
 
