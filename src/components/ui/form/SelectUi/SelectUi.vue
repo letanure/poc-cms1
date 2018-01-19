@@ -121,7 +121,9 @@ export default {
   },
   methods: {
     updateValue (value) {
-      console.log('value', value)
+      if (typeof this.value === 'boolean') {
+        value = (value === 'true' || value === true)
+      }
       this.$emit('input', value)
     },
   },
