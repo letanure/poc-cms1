@@ -116,9 +116,6 @@ const config = {
               {label: 'Yes', value: true},
               {label: 'No', value: false},
             ],
-            validations: {
-              required: false,
-            },
           },
         ],
       },
