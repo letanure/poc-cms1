@@ -45,7 +45,7 @@ export default {
                 value: '',
                 validations: {
                   required: true,
-                  minLength: 5,
+                  min: 5,
                 },
               },
             ],
@@ -60,7 +60,6 @@ export default {
                 value: '',
                 validations: {
                   required: true,
-                  isUrlPath: true,
                 },
               },
             ],
