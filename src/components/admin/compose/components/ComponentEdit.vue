@@ -1,13 +1,13 @@
 <template lang="pug">
   nav.ComponentEdit
-    template(v-if='editingComponentConfig', )
+    template(v-if='editingComponentConfig !== undefined', )
       form-ui(
         :header='editingComponentConfig.form.header',
         :fields='editingComponentConfig.form.fields',
         :actions='editingComponentConfig.form.actions',
         :value='editingComponentMock',
-        @submit='submit'
-      )
+        @editing='changed($event)',
+        @submited='submit',)
 
 </template>
 
@@ -30,11 +30,16 @@ export default {
     ...mapGetters([
       'editingComponentConfig',
       'editingComponentMock',
+      'getEditingKey',
     ]),
   },
   methods: {
+    changed (formdata) {
+      this.$store.dispatch('editComponentPage', formdata)
+    },
+
     submit () {
-      console.log('submit')
+      console.log('submited comp edit')
     },
   },
 }

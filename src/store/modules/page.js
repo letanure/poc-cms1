@@ -1,3 +1,5 @@
+import Vue from 'vue'
+import { clone } from 'lodash'
 import PagesApi from '@/api/page'
 import * as types from '../mutation-types'
 import * as emptyComponents from '@/components/ui/configs'
@@ -6,6 +8,7 @@ import * as emptyComponents from '@/components/ui/configs'
 const state = {
   url: '',
   content: [],
+  editingKey: null,
 }
 
 // getters
@@ -19,6 +22,14 @@ const actions = {
   addComponent ({ commit }, componentName) {
     return new Promise((resolve) => {
       commit(types.PAGE_ADD_COMPONENT, { componentName })
+      resolve()
+    })
+  },
+
+  // @todo: page store should not change component
+  editComponentPage ({ commit }, componentData) {
+    return new Promise((resolve) => {
+      commit(types.PAGE_UPDATE_COMPONENT, componentData)
       resolve()
     })
   },
@@ -49,11 +60,20 @@ const actions = {
 
 // mutations
 const mutations = {
+  // @todo: page store should not change component
+  [types.PAGE_UPDATE_COMPONENT] (state, componentData) {
+    const component = state.content
+      .find((component) => component.key === state.editingKey)
+    if (component) {
+      // @todo: remove clone
+      component.props = clone(componentData)
+    }
+  },
 
   [types.PAGE_ADD_COMPONENT] (state, { componentName }) {
     var configComp = {
       'type': componentName,
-      'key': new Date().getMilliseconds(),
+      'key': new Date().getTime(),
       'props': emptyComponents[componentName].mock,
       'grid': {
         'row': new Date().getMilliseconds(),
@@ -61,6 +81,8 @@ const mutations = {
         'offset': 0,
       },
     }
+    console.log('lesk', configComp.key)
+    Vue.set(state, 'editingKey', configComp.key)
     state.content.push(configComp)
   },
 

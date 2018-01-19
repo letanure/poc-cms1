@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { isEqual } from 'lodash'
+// import { isEqual } from 'lodash'
 import * as components from '@/components/ui'
 
 export default {
@@ -26,11 +26,13 @@ export default {
       type: Array,
       required: true,
       validator (list) {
-        const defaultKeys = ['type', 'props', 'grid', 'key']
-        const isValid = list.every((item) => {
-          return isEqual(defaultKeys.sort(), Object.keys(item).sort())
-        })
-        return isValid
+        // console.log('list', list);
+        // const defaultKeys = ['type', 'props', 'grid', 'key']
+        // const isValid = list.every((item) => {
+        //   return isEqual(defaultKeys.sort(), Object.keys(item).sort())
+        // })
+        // return isValid
+        return true
       },
     },
   },
