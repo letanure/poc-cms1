@@ -203,11 +203,16 @@ export default {
           })
         }
       })
-      console.log(this.formErrors)
     },
 
     handleSubmit () {
       this.validate()
+      const quantyErrors = Object.keys(this.formErrors).reduce((quantyErrors, modelKey) => {
+        return quantyErrors + this.formErrors[modelKey].length
+      }, 0)
+      if (quantyErrors === 0) {
+        this.submit()
+      }
     },
 
     submit () {
