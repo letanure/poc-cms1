@@ -7,7 +7,7 @@
           :fields='form.fields',
           :actions='form.actions',
           v-model="formData",
-          @submit='submit'
+          @submited='submit'
           )
 </template>
 
