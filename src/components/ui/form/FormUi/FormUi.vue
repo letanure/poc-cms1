@@ -81,6 +81,15 @@ export default {
     }
   },
 
+  watch: {
+    formModel: {
+      handler: function (val, oldVal) {
+        this.$emit('editing', this.formModel)
+      },
+      deep: true,
+    },
+  },
+
   beforeMount () {
     this.setFormModel()
   },
@@ -202,7 +211,7 @@ export default {
     },
 
     submit () {
-      this.$emit('submit', this.formModel)
+      this.$emit('submited', this.formModel)
     },
   },
 }
