@@ -1,9 +1,9 @@
 <template lang="pug">
   .SelectUi.control
     .select(:class='classes')
-      select
-        template(v-for='option in options')
-          option()
+      select(v-model="selected", v-on:input='updateValue($event.target.value)')
+        template(v-for='option in options', )
+          option(v-bind:value="option.value", )
             | {{ option.label }}
 </template>
 
@@ -91,6 +91,17 @@ export default {
         return options.includes(option)
       },
     },
+
+    value: {
+      default: null,
+      type: [Boolean, Number, String],
+      required: false,
+    },
+  },
+  data () {
+    return {
+      selected: null,
+    }
   },
   computed: {
     classes () {
@@ -103,6 +114,15 @@ export default {
         multipleClass,
       ]
       return [...new Set(classes)]
+    },
+  },
+  mounted () {
+    this.selected = this.value
+  },
+  methods: {
+    updateValue (value) {
+      console.log('value', value)
+      this.$emit('input', value)
     },
   },
 }
