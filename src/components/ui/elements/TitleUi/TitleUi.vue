@@ -27,10 +27,11 @@ export default {
 
     titleSize: {
       default: null,
-      type: Number,
+      type: [Number, String],
       required: false,
       validator (num) {
-        return inRange(num, 1, 7)
+        const numParsed = parseInt(num, 10)
+        return inRange(numParsed, 1, 7)
       },
     },
 
@@ -48,10 +49,11 @@ export default {
 
     subtitleSize: {
       default: null,
-      type: Number,
+      type: [Number, String],
       required: false,
       validator (num) {
-        return inRange(num, 1, 7)
+        const numParsed = parseInt(num, 10)
+        return inRange(numParsed, 1, 7)
       },
     },
 
