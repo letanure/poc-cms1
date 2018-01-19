@@ -81,7 +81,6 @@ const mutations = {
         'offset': 0,
       },
     }
-    console.log('lesk', configComp.key)
     Vue.set(state, 'editingKey', configComp.key)
     state.content.push(configComp)
   },
