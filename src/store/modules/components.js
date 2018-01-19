@@ -11,7 +11,13 @@ const state = {
 const getters = {
   emptyComponentsList: state => state.emptyComponents,
   editingComponentConfig: state => state.emptyComponents[state.editingComponentName],
-  editingComponentMock: state => state.emptyComponents[state.editingComponentName].mock,
+  editingComponentMock: (state) => {
+    let mock = {}
+    if (state.editingComponentName) {
+      mock = state.emptyComponents[state.editingComponentName].mock
+    }
+    return mock
+  },
 }
 
 // actions
