@@ -208,7 +208,11 @@ export default {
     handleSubmit () {
       this.validate()
       const quantyErrors = Object.keys(this.formErrors).reduce((quantyErrors, modelKey) => {
-        return quantyErrors + this.formErrors[modelKey].length
+        let errorModelQuantity = 0
+        if (this.formErrors[modelKey]) {
+          errorModelQuantity = this.formErrors[modelKey].length
+        }
+        return quantyErrors + errorModelQuantity
       }, 0)
       if (quantyErrors === 0) {
         this.submit()
