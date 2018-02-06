@@ -19,18 +19,10 @@ All notable changes to this project will be documented in the [CHANGELOG.md](CHA
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-Each new version should follow the format, keeping only the title that has some entry
+Each new version should follow the format
 
 ```
-## [1.0.0](../../compare/0.3.0...0.4.0) - 20/12/2017
-### Added
-### Changed
-### Deprecated
-### Removed
-### Fixed
-### Security
-
----
+## [1.0.0] - 20/12/2017
 ```
 
 ### Guiding Principles

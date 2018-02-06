@@ -73,79 +73,6 @@ Check the [CONTRIBUTING.md](CONTRIBUTING.md) file to see the development rules.
         └── ...           # other files to be included in pages and layout
 ```
 
-### Vuex
-
-Use Vuex for data that A) comes from the API, and/or B) needs to be accessed by the entire application.
-
-#### Stores:
-
-Whenever you can, normalize data that comes in array form unless the order is important (such as when you're getting the top 20 most recent pages from your API.) Even if the data has come back from the API as an array of objects, AND your view needs to display it as an array mapped over with a v-for directive, you should consider storing it in the store as an object of objects, by some identifying key, and then just denormalizing the data back again inside the getter.
-
-Bad:
-
-```js
-const initialState = {
-  partnersList: [], // array of all partners
-  currentPartner: {}, // current partner object.
-};
-```
-
-Good:
-
-```js
-const initialState = {
-  partnersList: {}, // object with all partners keyed by ID
-  currentPartnerId: ``, // a string contining the ID of the current partner.
-};
-```
-
-#### Getters:
-
-- Getters should not mutate data. (indeed, the purpose of a getter is to provide a "safer" way to access the vuex store values). They should only return the data you need.
-- Getters are great for taking the data from the store then formatting it the way you need it before handing it off to the Vue component. This keeps transformation logic outside of the presentational Vue component. You can also use this pattern to create different transforms on the same data without mutating that data.
-
-#### Actions:
-
-- Wrap the action in a promise, so the componnet can respont to any compelx logic that exists inside the store action (like an API call)
-
-Bad:
-
-```js
-updateUrl ({ commit }, url) {
-  PagesApi
-    .getPageContent(url)
-    .then((content) => {
-      commit(types.PAGE_UPDATE_CONTENT, { content })
-      commit(types.PAGE_UPDATE_URL, { url })
-      resolve()
-    })
-  },
-```
-
-Good:
-
-```js
-updateUrl ({ commit }, url) {
-  return new Promise((resolve) => {
-    PagesApi
-      .getPageContent(url)
-      .then((content) => {
-        commit(types.PAGE_UPDATE_CONTENT, { content })
-        commit(types.PAGE_UPDATE_URL, { url })
-        resolve()
-      })
-  })
-},
-
-// and inside the component:
-
-this.$store.dispatch('updateUrl', url).then(() => { ... })
-
-```
-
-#### Mutations:
-
-Mutations is an object with different methods that take the Observable state as the first parameter. It is here, and ONLY here that any part of the state should be changed.
 
 ## History
 
@@ -157,8 +84,4 @@ Luiz Tanure – [@tanure](https://twitter.com/tanure) – letanure@gmail.com
 
 ## License
 
-
-## References
-[Deverus Vue.js Style Guide](https://gist.github.com/letanure/8b4e8ee8f7b065860df942f0e53d6fc9)
-
-
+TODO: Write license
